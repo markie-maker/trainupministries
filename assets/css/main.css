@@ -2831,6 +2831,11 @@ ul.actions {
 	list-style: none;
 	margin-left: -1rem;
 	padding-left: 0;
+	margin-bottom: 0;
+}
+
+#intro>ul>li {
+	height: 4rem;
 }
 
 ul.actions li {
@@ -3434,7 +3439,7 @@ body.is-preload #wrapper.fade-in:before {
 
 #intro {
 	color: #ffffff;
-	padding: 8rem 4rem 6rem 4rem;
+	padding: 0 4rem 4rem 4rem;
 	-moz-align-items: center;
 	-webkit-align-items: center;
 	-ms-align-items: center;
@@ -3447,10 +3452,10 @@ body.is-preload #wrapper.fade-in:before {
 	-webkit-flex-direction: column;
 	-ms-flex-direction: column;
 	flex-direction: column;
-	-moz-justify-content: -moz-flex-end;
-	-webkit-justify-content: -webkit-flex-end;
-	-ms-justify-content: -ms-flex-end;
-	justify-content: flex-end;
+	-moz-justify-content: -moz-center;
+	-webkit-justify-content: -webkit-center;
+	-ms-justify-content: -ms-center;
+	justify-content: center;
 	-moz-transition: opacity 1s ease, -moz-transform 1s ease;
 	-webkit-transition: opacity 1s ease, -webkit-transform 1s ease;
 	-ms-transition: opacity 1s ease, -ms-transform 1s ease;
