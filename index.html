@@ -99,9 +99,10 @@
 			<ul class="links">
 				<li><a class="active" href="index.html">Home</a></li>
 				<li><a href="about.html">About</a></li>
-				<li><a href="elements.html">Events</a></li>
-				<li><a href="elements.html">Contact</a></li>
-				<li><a href="elements.html">Give</a></li>
+				<li><a href="events.html">Events</a></li>
+				<li><a href="contact.html">Contact</a></li>
+				<li><a href="give.html">Give</a></li>
+				<li><a href="elements.html">Element Reference</a></li>
 			</ul>
 			<!-- <ul class="icons">
 				<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
@@ -120,7 +121,7 @@
 				</header>
 			</section>
 			<section
-				style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; padding: 4rem 0; width: calc(100vw - 15px);">
+				style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; padding: 2rem 0; width: calc(100vw - 15px);">
 				<div style="width: calc(50% - 0.5rem - 20px); padding: 0 2rem 0 4rem;">
 					<p id="half-p">We believe that following Jesus makes life better --for you, your family, and our
 						community. It
@@ -133,7 +134,7 @@
 
 					<a href="about.html" class="primary button fit small">Learn More</a>
 				</div>
-				<div class="image fit" style="width: calc(50% - 0.5rem - 20px); padding: 0 4rem 0 2rem;">
+				<div class="image fit" style="width: calc(50% - 0.5rem - 20px); padding: 0 2rem 0 2rem;">
 					<img style="border-radius: 15px;" src="vineyard.jpg" alt="" />
 				</div>
 			</section>
@@ -240,7 +241,7 @@
 
 			prevYOffset = currentYOffset;
 
-			if (currentYOffset > 950) {
+			if (currentYOffset > window.innerHeight) {
 				document.querySelector('#nav').classList.add('main-nav');
 			}
 			else {

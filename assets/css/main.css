@@ -2375,7 +2375,7 @@ input[type="reset"].primary,
 input[type="button"].primary,
 button.primary,
 .button.primary {
-	background-color: #212931;
+	background-color: #1f3f7a !important;
 	box-shadow: none;
 	color: #ffffff !important;
 }
@@ -3377,6 +3377,7 @@ table.alt tbody tr td {
 
 .pagination a.active {
 	background-color: #eeeeee;
+	color: #0294a5 !important;
 }
 
 .pagination span {
@@ -3954,12 +3955,12 @@ ul.links {
 
 #nav ul.links li.active {
 	background-color: #ffffff;
-	color: #1e252d;
+	color: #0294a5 !important;
 }
 
 .active {
 	background-color: #ffffff !important;
-	color: #1e252d !important;
+	color: #0294a5 !important;
 }
 
 .active a:hover {
