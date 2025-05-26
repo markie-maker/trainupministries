@@ -428,7 +428,8 @@ hr.major {
 }
 
 #nav,
-#main {
+#main,
+#footer {
 	transition: width 0.4s ease !important;
 }
 

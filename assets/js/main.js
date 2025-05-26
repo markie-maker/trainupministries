@@ -4,30 +4,26 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
-let hasScrolled = false;
-let navScrollTop = 293;
 
-document.addEventListener('scroll', function () {
-	// Scroll only once
-	if (!hasScrolled && window.scrollY > 0) {
-		hasScrolled = true;
-		document.getElementById("nav").scrollIntoView({
-			behavior: "smooth",
-			block: "start"
-		});
-	}
+document.addEventListener('DOMContentLoaded', () => {
+	const navScrollTop = 293;
 
-	// Repeatedly check scroll position
-	if (window.scrollY > navScrollTop) {
-		document.getElementById("nav").classList.add("scrolled");
-		document.getElementById("main").classList.add("scrolled");
-	}
+	window.addEventListener('scroll', () => {
+		if (window.scrollY > navScrollTop) {
+			document.getElementById("nav")?.classList.add("scrolled");
+			document.getElementById("main")?.classList.add("scrolled");
+			document.getElementById("footer")?.classList.add("scrolled");
+		} else {
+			document.getElementById("nav")?.classList.remove("scrolled");
+			document.getElementById("main")?.classList.remove("scrolled");
+			document.getElementById("footer")?.classList.remove("scrolled");
+		}
+	});
 });
 
-function widthChange() {
-	document.getElementById("nav").classList.add("scrolled");
-	document.getElementById("main").classList.add("scrolled");
-}
+
+
+
 
 (function ($) {
 
