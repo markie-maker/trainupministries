@@ -5,56 +5,7 @@
 */
 
 
-const links = document.querySelectorAll('.links li a');
-const hoverBg = document.querySelector('.hover-bg');
 
-
-
-links.forEach(link => {
-	const rect = e.target.getBoundingClientRect();
-	const parentRect = e.target.closest('.links').getBoundingClientRect();
-
-	link.addEventListener('mouseenter', (e) => {
-		hoverBg.style.width = `${rect.width}px`;
-		hoverBg.style.left = `${rect.left - parentRect.left}px !important`;
-	});
-
-	link.addEventListener('mouseleave', () => {
-		hoverBg.style.width = '${rect.width}px';
-		hoverBg.style.left = '${rect.left - parentRect.left}px !important';
-	});
-});
-
-
-window.addEventListener('DOMContentLoaded', () => {
-	const active = document.querySelector('.links li a[href="index.html"]'); d
-	if (active && hoverBg.style.width === '') {
-		const rect = active.getBoundingClientRect();
-		const parentRect = active.closest('.links').getBoundingClientRect();
-		hoverBg.style.width = `${rect.width}px`;
-		hoverBg.style.left = `${rect.left - parentRect.left}px`;
-	}
-});
-
-let prevYOffset = window.scrollY;
-window.addEventListener('scroll', () => {
-	const currentYOffset = window.scrollY;
-
-	if (currentYOffset > prevYOffset) {
-		document.querySelector('#nav').classList.add('scrolling-down');
-	} else {
-		document.querySelector('#nav').classList.remove('scrolling-down');
-	}
-
-	prevYOffset = currentYOffset;
-
-	if (currentYOffset > 950) {
-		document.querySelector('#nav').classList.add('main-nav');
-	}
-	else {
-		document.querySelector('#nav').classList.remove('main-nav');
-	}
-});
 
 (function ($) {
 

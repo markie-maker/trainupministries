@@ -3809,6 +3809,19 @@ body.is-preload #intro:not(.hidden)+#header+#nav {
 	justify-content: space-around;
 }
 
+.active {
+	color: #0294a5 !important;
+	background-color: #ffffff !important;
+}
+
+#message {
+	resize: vertical;
+}
+
+section {
+	max-width: 100vw !important;
+}
+
 ul.links {
 	justify-content: flex-end;
 }
@@ -4904,8 +4917,13 @@ ul.links {
 	right: 0;
 	text-align: right;
 	top: 0;
-	vertical-align: middle;
+	/* vertical-align: middle; */
 	width: 7rem;
+}
+
+#header {
+	background-position: center top;
+	background-size: cover;
 }
 
 #navPanel .close:before {

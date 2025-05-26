@@ -1,0 +1,185 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+    <title>TrainUp Ministries</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript>
+        <link rel="stylesheet" href="assets/css/noscript.css" />
+    </noscript>
+
+    <style>
+        body {
+            font-family: Verdana, sans-serif;
+            margin: 0;
+        }
+
+        .slideshow-container {
+            max-width: 100vw;
+            position: relative;
+            margin: auto;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .mySlides {
+            position: absolute;
+            width: 100%;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+        }
+
+        .mySlides img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .mySlides.show {
+            opacity: 1;
+            z-index: 1;
+        }
+
+        @media only screen and (max-width: 300px) {
+            .text {
+                font-size: 11px;
+            }
+        }
+    </style>
+</head>
+
+<body class="is-preload">
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Header -->
+        <header id="header"
+            style="padding: 0; display: flex; justify-content: center; height: calc(75vh + 4rem); background-image: url('workTeam.jpg');">
+            <h1>About</h1>
+            <a href="index.html" class="logo"><img src="transparentLogo.svg" height="150" width="150"
+                    alt="TrainUp Logo"></a>
+        </header>
+
+        <!-- Nav -->
+        <nav id="nav">
+            <a href="index.html" id="navLink" class="logo"><img src="transparentLogo.svg" id="navLogo"
+                    alt="TrainUp Logo"></a>
+            <ul class="links">
+                <li><a href="index.html">Home</a></li>
+                <li><a class="active" href="about.html">About</a></li>
+                <li><a href="elements.html">Events</a></li>
+                <li><a href="elements.html">Contact</a></li>
+                <li><a href="elements.html">Give</a></li>
+            </ul>
+            <!-- <ul class="icons">
+				<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+				<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+				<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+				<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+			</ul> -->
+        </nav>
+
+        <!-- Main -->
+        <div id="main"></div>
+
+        <!-- Footer -->
+        <footer id="footer">
+            <section>
+                <form method="post" action="#">
+                    <div class="fields">
+                        <div class="field">
+                            <label for="name">Name</label>
+                            <input type="text" name="name" id="name" />
+                        </div>
+                        <div class="field">
+                            <label for="email">Email</label>
+                            <input type="text" name="email" id="email" />
+                        </div>
+                        <div class="field">
+                            <label for="message">Message</label>
+                            <textarea name="message" id="message" rows="3"></textarea>
+                        </div>
+                    </div>
+                    <ul class="actions">
+                        <li><input type="submit" value="Send Message" /></li>
+                    </ul>
+                </form>
+            </section>
+            <section class="split contact">
+                <section class="alt">
+                    <h3>Address</h3>
+                    <p>1234 Somewhere Road #87257<br />
+                        Nashville, TN 00000-0000</p>
+                </section>
+                <section>
+                    <h3>Phone</h3>
+                    <p><a href="#">(714) 906-4227</a></p>
+                </section>
+                <section>
+                    <h3>Email</h3>
+                    <p><a href="#">info@untitled.tld</a></p>
+                </section>
+                <section>
+                    <h3>Social</h3>
+                    <ul class="icons alt">
+                        <li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a>
+                        </li>
+                        <li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a>
+                        </li>
+                        <li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a>
+                        </li>
+                        <li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a>
+                        </li>
+                    </ul>
+                </section>
+            </section>
+        </footer>
+
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+
+
+    <script>
+        let prevYOffset = window.scrollY;
+        window.addEventListener('scroll', () => {
+            const currentYOffset = window.scrollY;
+
+            if (currentYOffset > prevYOffset) {
+                document.querySelector('#nav').classList.add('scrolling-down');
+            } else {
+                document.querySelector('#nav').classList.remove('scrolling-down');
+            }
+
+            prevYOffset = currentYOffset;
+
+            if (currentYOffset > 950) {
+                document.querySelector('#nav').classList.add('main-nav');
+            }
+            else {
+                document.querySelector('#nav').classList.remove('main-nav');
+            }
+        });
+    </script>
+
+
+</body>
+
+</html>
