@@ -13,10 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
 			document.getElementById("nav")?.classList.add("scrolled");
 			document.getElementById("main")?.classList.add("scrolled");
 			document.getElementById("footer")?.classList.add("scrolled");
-		} else {
-			document.getElementById("nav")?.classList.remove("scrolled");
-			document.getElementById("main")?.classList.remove("scrolled");
-			document.getElementById("footer")?.classList.remove("scrolled");
 		}
 	});
 });
