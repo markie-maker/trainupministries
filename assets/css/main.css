@@ -21,7 +21,7 @@
 }
 
 .smoothScroll {
-	scroll-behavior: smooth;
+	scroll-behavior: smooth !important;
 }
 
 .logo {
@@ -3799,17 +3799,39 @@ body.is-preload #intro:not(.hidden)+#header+#nav {
 	line-height: 4rem;
 	margin: -4rem auto 0 auto;
 	overflow: hidden;
-	padding: 0 2rem 0 0;
+	padding: 0 2rem;
 	position: fixed;
 	top: 4rem;
 	z-index: 5;
 	width: 100vw;
 	transition: height 0.4s ease, background-color 0.4s ease !important;
 	border-bottom: #1f3f7a solid 2px;
+	justify-content: space-around;
+}
+
+ul.links {
+	justify-content: flex-end;
 }
 
 .scrolling-down {
 	height: 0 !important;
+}
+
+#navLogo {
+	height: 4rem;
+	width: 4rem;
+	padding: 0.5rem;
+	border-radius: 50%;
+}
+
+#navLink {
+	height: 4rem !important;
+	width: 4rem !important;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50%;
+	overflow: hidden;
 }
 
 .main-nav {

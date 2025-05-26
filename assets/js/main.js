@@ -16,12 +16,12 @@ links.forEach(link => {
 
 	link.addEventListener('mouseenter', (e) => {
 		hoverBg.style.width = `${rect.width}px`;
-		hoverBg.style.left = `${rect.left - parentRect.left}px`;
+		hoverBg.style.left = `${rect.left - parentRect.left}px !important`;
 	});
 
 	link.addEventListener('mouseleave', () => {
-		hoverBg.style.width = `${rect.width}px`;
-		hoverBg.style.left = '0';
+		hoverBg.style.width = '${rect.width}px';
+		hoverBg.style.left = '${rect.left - parentRect.left}px !important';
 	});
 });
 

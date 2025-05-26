@@ -81,8 +81,9 @@
 			<p> a youth ministry dedicated to guiding young people in faith and character, grounded in the values of
 				Proverbs 22:6—“Train up a child in the way he should go, and when he is old, he will not depart from
 				it.”</p>
-			<ul class="actions">
-				<li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
+			<!-- <ul class="actions">
+				<li><a href="#header" class="button icon solid solo fa-arrow-down scrolly smoothScroll">Continue</a>
+				</li> -->
 			</ul>
 		</div>
 
@@ -93,20 +94,20 @@
 
 		<!-- Nav -->
 		<nav id="nav">
+			<a href="index.html" id="navLink" class="logo"><img src="logoBlue.svg" id="navLogo" alt="TrainUp Logo"></a>
 			<ul class="links">
 				<li><a href="index.html">Home</a></li>
 				<li><a href="generic.html">About</a></li>
 				<li><a href="elements.html">Events</a></li>
 				<li><a href="elements.html">Contact</a></li>
 				<li><a href="elements.html">Give</a></li>
-				<div class="hover-bg"></div>
 			</ul>
-			<ul class="icons">
+			<!-- <ul class="icons">
 				<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
 				<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
 				<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
 				<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-			</ul>
+			</ul> -->
 		</nav>
 
 		<!-- Main -->
@@ -311,6 +312,27 @@
 		}
 
 		showSlides();
+
+
+		let prevYOffset = window.scrollY;
+		window.addEventListener('scroll', () => {
+			const currentYOffset = window.scrollY;
+
+			if (currentYOffset > prevYOffset) {
+				document.querySelector('#nav').classList.add('scrolling-down');
+			} else {
+				document.querySelector('#nav').classList.remove('scrolling-down');
+			}
+
+			prevYOffset = currentYOffset;
+
+			if (currentYOffset > 950) {
+				document.querySelector('#nav').classList.add('main-nav');
+			}
+			else {
+				document.querySelector('#nav').classList.remove('main-nav');
+			}
+		});
 	</script>
 
 
