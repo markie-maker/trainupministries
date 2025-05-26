@@ -420,25 +420,37 @@ hr.major {
 	text-align: right;
 }
 
+.scrolled {
+	max-width: none !important;
+	margin-left: none !important;
+	margin-right: none !important;
+	width: 100vw !important;
+}
+
+#nav,
+#main {
+	transition: width 0.4s ease !important;
+}
+
 input,
 select,
 textarea {
-	color: #212931;
+	color: #1f3f7a;
 }
 
 a {
-	color: #212931;
+	color: #1f3f7a !important;
 	border-bottom-color: rgba(33, 41, 49, 0.5);
 }
 
 a:hover {
 	border-bottom-color: transparent;
-	color: #18bfef !important;
+	color: #0294a5 !important;
 }
 
 strong,
 b {
-	color: #212931;
+	color: #1f3f7a;
 }
 
 h1,
@@ -447,7 +459,7 @@ h3,
 h4,
 h5,
 h6 {
-	color: #212931;
+	color: #1f3f7a;
 }
 
 blockquote {
@@ -2357,8 +2369,8 @@ input[type="reset"]:hover,
 input[type="button"]:hover,
 button:hover,
 .button:hover {
-	box-shadow: inset 0 0 0 2px #18bfef;
-	color: #18bfef !important;
+	box-shadow: inset 0 0 0 2px #0294a5;
+	color: #0294a5 !important;
 }
 
 input[type="submit"].primary,
@@ -2376,7 +2388,7 @@ input[type="reset"].primary:hover,
 input[type="button"].primary:hover,
 button.primary:hover,
 .button.primary:hover {
-	background-color: #18bfef;
+	background-color: #0294a5;
 }
 
 /* Form */
@@ -3039,7 +3051,7 @@ ul.divided li {
 }
 
 ul.icons li a.icon:hover:before {
-	color: #18bfef;
+	color: #0294a5;
 }
 
 ul.icons.alt li .icon:before {
@@ -3047,7 +3059,7 @@ ul.icons.alt li .icon:before {
 }
 
 ul.icons.alt li a.icon:hover:before {
-	box-shadow: inset 0 0 0 2px #18bfef;
+	box-shadow: inset 0 0 0 2px #0294a5;
 }
 
 /* Section/Article */
@@ -3356,14 +3368,14 @@ table.alt tbody tr td {
 }
 
 .pagination a:hover {
-	color: #18bfef !important;
-	border-color: #18bfef;
+	color: #0294a5 !important;
+	border-color: #0294a5;
 	z-index: 1;
 }
 
 .pagination a:hover+a,
 .pagination a:hover+span {
-	border-left-color: #18bfef;
+	border-left-color: #0294a5;
 }
 
 .pagination a.active {
@@ -3480,7 +3492,7 @@ body.is-preload #wrapper.fade-in:before {
 
 #intro a:hover {
 	border-bottom-color: transparent;
-	color: #18bfef !important;
+	color: #0294a5 !important;
 }
 
 #intro strong,
@@ -3525,8 +3537,8 @@ body.is-preload #wrapper.fade-in:before {
 #intro input[type="button"]:hover,
 #intro button:hover,
 #intro .button:hover {
-	box-shadow: inset 0 0 0 2px #18bfef;
-	color: #18bfef !important;
+	box-shadow: inset 0 0 0 2px #0294a5;
+	color: #0294a5 !important;
 }
 
 #intro input[type="submit"].primary,
@@ -3544,7 +3556,7 @@ body.is-preload #wrapper.fade-in:before {
 #intro input[type="button"].primary:hover,
 #intro button.primary:hover,
 #intro .button.primary:hover {
-	background-color: #18bfef;
+	background-color: #0294a5;
 }
 
 #intro h1 {
@@ -3697,7 +3709,7 @@ body.is-preload #intro:not(.hidden)+#header+#nav {
 
 #header a:hover {
 	border-bottom-color: transparent;
-	color: #18bfef !important;
+	color: #0294a5 !important;
 }
 
 #header strong,
@@ -3785,7 +3797,7 @@ body.is-preload #intro:not(.hidden)+#header+#nav {
 	-webkit-transition: -webkit-transform 1s ease, opacity 1s ease;
 	-ms-transition: -ms-transform 1s ease, opacity 1s ease;
 	transition: transform 1s ease, opacity 1s ease;
-	background: rgba(255, 255, 255, 0.175);
+	background: rgba(255, 255, 255, 0.4);
 	height: 4rem;
 	line-height: 4rem;
 	margin: -4rem auto 0 auto;
@@ -3802,7 +3814,7 @@ body.is-preload #intro:not(.hidden)+#header+#nav {
 }
 
 #nav ul.icons li a.icon:hover:before {
-	color: #18bfef;
+	color: #0294a5;
 }
 
 #nav ul.icons.alt li .icon:before {
@@ -3810,7 +3822,7 @@ body.is-preload #intro:not(.hidden)+#header+#nav {
 }
 
 #nav ul.icons.alt li a.icon:hover:before {
-	box-shadow: inset 0 0 0 2px #18bfef;
+	box-shadow: inset 0 0 0 2px #0294a5;
 }
 
 #nav input,
@@ -3826,7 +3838,7 @@ body.is-preload #intro:not(.hidden)+#header+#nav {
 
 #nav a:hover {
 	border-bottom-color: transparent;
-	color: #18bfef !important;
+	color: #0294a5 !important;
 }
 
 #nav strong,
@@ -3895,7 +3907,6 @@ body.is-preload #intro:not(.hidden)+#header+#nav {
 }
 
 #nav ul.links li a:hover {
-	color: inherit !important;
 	background-color: rgba(255, 255, 255, 0.1);
 }
 
@@ -3908,7 +3919,7 @@ body.is-preload #intro:not(.hidden)+#header+#nav {
 }
 
 #nav ul.links li.active a:hover {
-	color: #18bfef !important;
+	color: #0294a5 !important;
 }
 
 #nav ul.icons {
@@ -4156,7 +4167,7 @@ body.is-preload #intro:not(.hidden)+#header+#nav {
 
 #footer a:hover {
 	border-bottom-color: transparent;
-	color: #18bfef !important;
+	color: #0294a5 !important;
 }
 
 #footer strong,
@@ -4206,7 +4217,7 @@ body.is-preload #intro:not(.hidden)+#header+#nav {
 #footer button:hover,
 #footer .button:hover {
 	box-shadow: inset 0 0 0 2px #18bfef;
-	color: #18bfef !important;
+	color: #0294a5 !important;
 }
 
 #footer input[type="submit"].primary,
@@ -4224,7 +4235,7 @@ body.is-preload #intro:not(.hidden)+#header+#nav {
 #footer input[type="button"].primary:hover,
 #footer button.primary:hover,
 #footer .button.primary:hover {
-	background-color: #18bfef;
+	background-color: #0294a5;
 }
 
 #footer label {
@@ -4307,7 +4318,7 @@ body.is-preload #intro:not(.hidden)+#header+#nav {
 }
 
 #footer ul.icons li a.icon:hover:before {
-	color: #18bfef;
+	color: #0294a5;
 }
 
 #footer ul.icons.alt li .icon:before {
@@ -4315,7 +4326,7 @@ body.is-preload #intro:not(.hidden)+#header+#nav {
 }
 
 #footer ul.icons.alt li a.icon:hover:before {
-	box-shadow: inset 0 0 0 2px #18bfef;
+	box-shadow: inset 0 0 0 2px #0294a5;
 }
 
 #footer header.major .date:before,
@@ -4357,14 +4368,14 @@ body.is-preload #intro:not(.hidden)+#header+#nav {
 }
 
 #footer .pagination a:hover {
-	color: #18bfef !important;
-	border-color: #18bfef;
+	color: #0294a5 !important;
+	border-color: #0294a5;
 	z-index: 1;
 }
 
 #footer .pagination a:hover+a,
 #footer .pagination a:hover+span {
-	border-left-color: #18bfef;
+	border-left-color: #0294a5;
 }
 
 #footer .pagination a.active {
@@ -4603,7 +4614,7 @@ body.is-preload #intro:not(.hidden)+#header+#nav {
 
 #copyright a:hover {
 	border-bottom-color: transparent;
-	color: #18bfef !important;
+	color: #0294a5 !important;
 }
 
 #copyright strong,
@@ -4842,6 +4853,10 @@ body.is-preload #intro:not(.hidden)+#header+#nav {
 
 #navPanel .close:hover {
 	color: #212931;
+}
+
+a:hover {
+	color: #0294a5 !important;
 }
 
 @media screen and (max-width: 736px) {
