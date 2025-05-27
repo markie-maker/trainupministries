@@ -1,6 +1,10 @@
 @import url(fontawesome-all.min.css);
 @import url("https://fonts.googleapis.com/css?family=Merriweather:300,700,300italic,700italic|Source+Sans+Pro:900");
 
+p {
+	font-family: Verdana, Geneva, Tahoma, sans-serif !important;
+}
+
 /*
 	Massively by HTML5 UP
 	html5up.net | @ajlkn
@@ -442,6 +446,48 @@ a:hover {
 strong,
 b {
 	color: #1f3f7a;
+}
+
+#eventContainer {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, auto);
+	grid-gap: 1rem;
+	padding: 1rem;
+	grid-template-rows: repeat(auto-fill, auto);
+	align-items: center;
+	justify-items: center;
+
+}
+
+.event {
+	background-color: #ffffff;
+	border-radius: 0.5rem;
+	box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.1);
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	padding: 1rem;
+	height: auto;
+	width: 30rem;
+}
+
+.event a {
+	border-radius: 5px;
+}
+
+.event img {
+	border-radius: 0.5rem;
+	height: 15rem;
+	width: 100%;
+	object-fit: cover;
+
+	background-color: #eeeeee;
+
+}
+
+.event p {
+	/* padding: 0.5rem 1rem; */
+	margin: 1rem 0;
 }
 
 h1,
