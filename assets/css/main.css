@@ -423,12 +423,6 @@ hr.major {
 	text-align: right;
 }
 
-#nav,
-#main,
-#footer {
-	transition: width 0.4s ease !important;
-}
-
 input,
 select,
 textarea {
