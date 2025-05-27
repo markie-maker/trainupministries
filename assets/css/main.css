@@ -449,14 +449,13 @@ b {
 }
 
 #eventContainer {
-	display: grid;
-	grid-template-columns: repeat(auto-fill, auto);
-	grid-gap: 1rem;
-	padding: 1rem;
-	grid-template-rows: repeat(auto-fill, auto);
-	align-items: center;
-	justify-items: center;
+	display: flex;
+	flex-wrap: wrap;
 
+	padding: 1rem;
+
+	justify-content: center;
+	gap: 2rem;
 }
 
 .event {
@@ -469,10 +468,21 @@ b {
 	padding: 1rem;
 	height: auto;
 	width: 30rem;
+	justify-content: space-between;
 }
 
 .event a {
 	border-radius: 5px;
+	align-self: flex-end;
+}
+
+.borderBottom {
+	border-bottom: 1px solid #eeeeee;
+	margin-bottom: 0 !important;
+}
+
+.noMarginTop {
+	margin-top: 0 !important;
 }
 
 .event img {
@@ -488,6 +498,7 @@ b {
 .event p {
 	/* padding: 0.5rem 1rem; */
 	margin: 1rem 0;
+	text-align: left;
 }
 
 h1,
