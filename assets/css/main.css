@@ -478,11 +478,13 @@ b {
 
 .borderBottom {
 	border-bottom: 1px solid #eeeeee;
+	padding-bottom: 1rem;
 	margin-bottom: 0 !important;
 }
 
-.noMarginTop {
-	margin-top: 0 !important;
+label {
+	text-align: left;
+	color: #1f3f7a;
 }
 
 .event img {
@@ -2535,6 +2537,7 @@ label {
 input[type="text"],
 input[type="password"],
 input[type="email"],
+input[type="tel"],
 select,
 textarea {
 	-moz-appearance: none;
@@ -2580,6 +2583,7 @@ select::-ms-expand {
 input[type="text"],
 input[type="password"],
 input[type="email"],
+input[type="tel"],
 select {
 	height: 3rem;
 }
@@ -2683,6 +2687,7 @@ label {
 input[type="text"],
 input[type="password"],
 input[type="email"],
+input[type="tel"],
 select,
 textarea {
 	border-color: #eeeeee;
@@ -2691,6 +2696,7 @@ textarea {
 input[type="text"]:focus,
 input[type="password"]:focus,
 input[type="email"]:focus,
+input[type="tel"]:focus,
 select:focus,
 textarea:focus {
 	border-color: #18bfef;
@@ -4385,6 +4391,7 @@ ul.links {
 #footer input[type="text"],
 #footer input[type="password"],
 #footer input[type="email"],
+
 #footer select,
 #footer textarea {
 	border-color: #e2e2e2;
