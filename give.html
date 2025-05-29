@@ -21,30 +21,24 @@
             margin: 0;
         }
 
-        .slideshow-container {
-            max-width: 100vw;
-            position: relative;
-            margin: auto;
-            height: 100vh;
-            overflow: hidden;
-        }
-
         .mySlides {
+            width: calc(100% - 8rem);
             position: absolute;
-            width: 100%;
             opacity: 0;
             transition: opacity 1.5s ease-in-out;
         }
 
-        .mySlides img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+        .mySlides * {
+            text-align: center;
         }
 
         .mySlides.show {
             opacity: 1;
             z-index: 1;
+        }
+
+        .slideshow-container {
+            height: calc(150px + 6rem);
         }
 
         @media only screen and (max-width: 300px) {
@@ -62,8 +56,8 @@
 
         <!-- Header -->
         <header id="header"
-            style="padding: 0; display: flex; justify-content: center; height: calc(50vh + 4rem); background-image: url('workTeam.jpg'); background-attachment: fixed; background-size: cover; background-position: center;">
-            <h1>Events</h1>
+            style="padding: 0; display: flex; justify-content: center; height: calc(50vh + 4rem); background-image: url('give.jpg'); background-attachment: fixed; background-size: cover; background-position: bottom;">
+            <h1>Give</h1>
         </header>
 
         <!-- Nav -->
@@ -73,9 +67,9 @@
             <ul class="links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
-                <li><a class="active" href="events.html">Events</a></li>
+                <li><a href="events.html">Events</a></li>
                 <li><a href="contact.html">Contact</a></li>
-                <li><a href="give.html">Give</a></li>
+                <li><a class="active" href="give.html">Give</a></li>
                 <li><a href="elements.html">Element Reference</a></li>
             </ul>
             <!-- <ul class="icons">
@@ -89,58 +83,30 @@
         <!-- Main -->
         <div id="main">
             <section class="wrapper style1 align-center">
-                <div class="inner">
-                    <h2>Upcoming Events</h2>
-                    <p style="text-align: center;">Join us for our upcoming events designed to inspire and uplift our
-                        community.</p>
-                </div>
+                <h2>Support Our Mission</h2>
+                <p style="text-align: center;">Your contributions help us continue our work in the community. Every
+                    donation counts!</p>
             </section>
-            <section>
-                <div id="eventContainer">
-                    <div class="event">
-                        <h3>Community Service Day</h3>
-                        <img src="communityService.jpg" alt="">
-                        <p class="borderBottom">Date: March 15, 2024</p>
-                        <p class="noMarginTop">Join us for a day of service in our local community. We will be cleaning
-                            parks, helping at
-                            shelters, and more.</p>
-                        <a href="events/communityService.html" class="button primary fit">RSVP</a>
-                    </div>
-                    <div class="event">
-                        <h3>Youth Retreat</h3>
-                        <img src="youthRetreat.jpg" alt="">
-                        <p class="borderBottom">Date: April 20-22, 2024</p>
-                        <p class="noMarginTop">A weekend retreat for youth to grow in faith and fellowship. Activities
-                            include workshops,
-                            worship sessions, and outdoor adventures.</p>
-                        <a href="events/youthRetreat.html" class="button primary fit">RSVP</a>
-                    </div>
-                    <div class="event">
-                        <h3>Annual Fundraiser Gala</h3>
-                        <img src="annualFundraiser.jpg" alt="">
-                        <p class="borderBottom">Date: June 10, 2024</p>
-                        <p class="noMarginTop">Join us for an evening of dinner and entertainment to support our
-                            ministry programs.</p>
-                        <a href="events/annualFundraiser.html" class="button primary fit">RSVP</a>
-                    </div>
-                    <div class="event">
-                        <h3>Summer Camp</h3>
-                        <img src="summerCamp.jpg" alt="">
-                        <p class="borderBottom">Date: July 15-20, 2024</p>
-                        <p class="noMarginTop">A week-long camp for youth filled with fun activities, spiritual growth,
-                            and community
-                            building.</p>
-                        <a href="events/summerCamp.html" class="button primary fit">RSVP</a>
-                    </div>
-                    <div class="event">
-                        <h3>Back to School Bash</h3>
-                        <img src="backToSchoolBash.jpg" alt="">
-                        <p class="borderBottom">Date: August 25, 2024</p>
-                        <p class="noMarginTop">A fun-filled day to celebrate the start of a new school year with games,
-                            food, and
-                            fellowship.</p>
-                        <a href="events/backToSchoolBash.html" class="button primary fit">RSVP</a>
-                    </div>
+            <section class="slideshow-container wrapper style2 align-center">
+                <div class="mySlides show">
+                    <p style="font-size: 1rem;"><i>"Each one must give as he has decided in his heart, not
+                            reluctantly or under compulsion,
+                            for God loves a cheerful giver."</i></p>
+                    <h3>2 Corinthians 9:7</h3>
+                </div>
+
+                <div class="mySlides">
+                    <p style="font-size: 1rem;"><i>"Honor the LORD with your wealth and with the firstfruits of all
+                            your produce; then your
+                            barns will be filled with plenty, and your vats will be bursting with wine."</i></p>
+                    <h3>Proverbs 3:9-10</h3>
+                </div>
+
+                <div class="mySlides">
+                    <p style="font-size: 1rem;"><i>"One gives freely, yet grows all the richer; another withholds
+                            what he should give, and
+                            only suffers want."</i></p>
+                    <h3>Proverbs 11:24</h3>
                 </div>
             </section>
         </div>
@@ -232,6 +198,26 @@
                 document.querySelector('#nav').classList.remove('main-nav');
             }
         });
+
+
+        let slideIndex = 0;
+        const slides = document.getElementsByClassName("mySlides");
+
+        function showSlides() {
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].classList.remove("show");
+            }
+
+            slideIndex++;
+            if (slideIndex > slides.length) {
+                slideIndex = 1;
+            }
+
+            slides[slideIndex - 1].classList.add("show");
+            setTimeout(showSlides, 5000); // Change every 5s
+        }
+
+        showSlides();
     </script>
 
 
