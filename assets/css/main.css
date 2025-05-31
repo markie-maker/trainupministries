@@ -512,6 +512,41 @@ h6 {
 	color: #1f3f7a;
 }
 
+.eventModal {
+	position: fixed;
+	height: 85vh;
+	width: 50vw;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: #ffffff;
+	margin: 2rem 0 0 0 !important;
+	border: none !important;
+	padding: 1rem 2rem !important;
+	overflow-y: scroll;
+	z-index: 1000;
+	transition: opacity 0.3s ease-in-out;
+}
+
+.eventModalBg {
+	position: fixed;
+	height: 100vh;
+	width: 100vw;
+	top: 0;
+	left: 0;
+	background-color: rgba(0, 0, 0, 0.67);
+	z-index: 999;
+	transition: opacity 0.3s ease-in-out;
+}
+
+.eventModal * {
+	max-width: 100%;
+}
+
+.modalForm div {
+	padding-left: 0;
+}
+
 blockquote {
 	border-left-color: #eeeeee;
 }
