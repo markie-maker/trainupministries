@@ -1,18 +1,7 @@
 [
     {
-        "title": "Team Meeting",
-        "date": "2025-05-07"
-    },
-    {
-        "title": "Product Launch",
-        "date": "2025-05-15"
-    },
-    {
-        "title": "Volunteer Day",
-        "date": "2025-06-10"
-    },
-    {
-        "title": "Community Event",
-        "date": "2025-04-28"
+        "title": "Community Service Day",
+        "modalId": "communityService",
+        "date": "2025-03-15"
     }
 ]

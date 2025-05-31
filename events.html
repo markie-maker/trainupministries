@@ -92,6 +92,9 @@
             text-align: center;
             background-color: #e3f2fd;
             border-left: 4px solid #2196f3;
+            line-height: normal;
+            padding: 0.5rem 0.25rem;
+            border-radius: 0 4px 4px 0;
         }
 
         .calEvent:hover {
@@ -144,13 +147,14 @@
             <section>
                 <div id="eventContainer">
                     <div class="event">
+
                         <h3>Community Service Day</h3>
                         <img src="communityService.jpg" alt="">
-                        <p class="borderBottom">Date: March 15, 2024</p>
+                        <p class="borderBottom">Date: March 15, 2025</p>
                         <p class="noMarginTop">Join us for a day of service in our local community. We will be cleaning
                             parks, helping at
                             shelters, and more.</p>
-                        <a href="events/communityService.html" class="button primary fit">RSVP</a>
+                        <a onclick="openModal('communityService');" class="button primary fit">RSVP</a>
                     </div>
                     <div class="event">
                         <h3>Youth Retreat</h3>
@@ -159,10 +163,13 @@
                         <p class="noMarginTop">A weekend retreat for youth to grow in faith and fellowship. Activities
                             include workshops,
                             worship sessions, and outdoor adventures.</p>
-                        <a href="events/youthRetreat.html" class="button primary fit">RSVP</a>
+                        <a class="button primary fit">RSVP</a>
                     </div>
                 </div>
             </section>
+
+
+            <!-- Calendar -->
             <section style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
 
                 <div class="calendar-nav">
@@ -246,6 +253,7 @@
                                             const eventDiv = document.createElement('div');
                                             eventDiv.className = 'calEvent';
                                             eventDiv.textContent = event.title;
+                                            eventDiv.onclick = () => openModal(event.modalId);
                                             box.appendChild(eventDiv);
                                         }
                                     }
@@ -261,11 +269,20 @@
                 </script>
             </section>
             <div class="eventModalBg"></div>
-            <div class="fade eventModal event" id="testModal">
-                <button class="close button alt"></button>
-                <h3>Community Service Day</h3>
+
+
+            <!-- Modals -->
+            <div class="fade eventModal event" id="communityService">
+                <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 0;">
+                    <h3 style="display: inline; margin: 0;">Community Service Day</h3>
+                    <svg class="close" onclick="closeModal('communityService');" xmlns="http://www.w3.org/2000/svg"
+                        height="40px" viewBox="0 -960 960 960" width="40px" fill="#000000">
+                        <path
+                            d="m251.33-204.67-46.66-46.66L433.33-480 204.67-708.67l46.66-46.66L480-526.67l228.67-228.66 46.66 46.66L526.67-480l228.66 228.67-46.66 46.66L480-433.33 251.33-204.67Z" />
+                    </svg>
+                </div>
                 <img src="communityService.jpg" alt="">
-                <p class="borderBottom">Date: March 15, 2024</p>
+                <p class="borderBottom">Date: March 15, 2025</p>
                 <p style="margin-bottom: 1rem !important;" class="borderBottom noMarginTop">Join us for a day of service
                     in our
                     local community. We will be
@@ -278,17 +295,13 @@
                             <label for="name">Name</label>
                             <input type="text" name="name" id="name" value="" placeholder="Jane Doe" />
                         </div>
-                        <div style="padding-right: 0.75rem; width: 50%;" class="col-6 col-12-xsmall">
-                            <label for="email">Email</label>
-                            <input type="email" name="email" id="email" value="" placeholder="example@gmail.com" />
-                        </div>
-                        <div style="padding-left: 0.75rem !important; width: 50%;" class="col-6 col-12-xsmall">
+                        <div style="width: 100%;" class="col-12">
                             <label for="phone">Phone</label>
                             <input type="tel" name="phone" id="phone" value="" placeholder="(123)-456-789" />
                         </div>
                         <div style="width: 100%;" class="col-12">
-                            <label for="message">Message</label>
-                            <textarea name="message" id="message" rows="4" placeholder="Type Here..."></textarea>
+                            <label for="message">Guests attending with you:</label>
+                            <input type="number" name="guests" id="guests" value="0" min="0" max="99" />
                         </div>
                         <div style="width: 100%;" class="col-12">
                             <ul class="actions">
@@ -388,6 +401,26 @@
                 else {
                     document.querySelector('#nav').classList.remove('main-nav');
                 }
+            });
+
+            function openModal(modalId) {
+                document.querySelector('.eventModalBg').style.display = 'block';
+                document.getElementById(modalId).style.display = 'block';
+
+
+            }
+
+            function closeModal(modalId) {
+                document.querySelector('.eventModalBg').style.display = 'none';
+                document.getElementById(modalId).style.display = 'none';
+            }
+
+            document.querySelector('.eventModalBg').addEventListener('click', () => {
+                const modals = document.querySelectorAll('.eventModal');
+                modals.forEach(modal => {
+                    modal.style.display = 'none';
+                });
+                document.querySelector('.eventModalBg').style.display = 'none';
             });
         </script>
 

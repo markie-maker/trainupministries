@@ -526,6 +526,7 @@ h6 {
 	overflow-y: scroll;
 	z-index: 1000;
 	transition: opacity 0.3s ease-in-out;
+	display: none;
 }
 
 .eventModalBg {
@@ -537,6 +538,36 @@ h6 {
 	background-color: rgba(0, 0, 0, 0.67);
 	z-index: 999;
 	transition: opacity 0.3s ease-in-out;
+	display: none;
+}
+
+.close {
+	position: relative;
+	font-size: 1.5rem;
+	color: #1f3f7a;
+	cursor: pointer;
+	transition: transform 0.3s;
+}
+
+.close:hover {
+	transform: rotate(90deg);
+}
+
+.eventModal::-webkit-scrollbar {
+	width: 0.5rem;
+	position: absolute;
+	right: 0;
+}
+
+.eventModal::-webkit-scrollbar-track {
+	background-color: #eeeeee;
+	border-radius: 0 0.5rem 0.5rem 0;
+	width: 0.5rem;
+}
+
+.eventModal::-webkit-scrollbar-thumb {
+	background-color: #1f3f7a;
+	border-radius: 0.5rem;
 }
 
 .eventModal * {
@@ -2573,6 +2604,7 @@ input[type="text"],
 input[type="password"],
 input[type="email"],
 input[type="tel"],
+input[type="number"],
 select,
 textarea {
 	-moz-appearance: none;
@@ -2619,6 +2651,7 @@ input[type="text"],
 input[type="password"],
 input[type="email"],
 input[type="tel"],
+input[type="number"],
 select {
 	height: 3rem;
 }
@@ -2723,6 +2756,7 @@ input[type="text"],
 input[type="password"],
 input[type="email"],
 input[type="tel"],
+input[type="number"],
 select,
 textarea {
 	border-color: #eeeeee;
@@ -2732,6 +2766,7 @@ input[type="text"]:focus,
 input[type="password"]:focus,
 input[type="email"]:focus,
 input[type="tel"]:focus,
+input[type="number"]:focus,
 select:focus,
 textarea:focus {
 	border-color: #18bfef;
