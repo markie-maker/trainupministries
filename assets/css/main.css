@@ -541,7 +541,7 @@ h6 {
 	display: none;
 }
 
-.close {
+.closeModal {
 	position: relative;
 	font-size: 1.5rem;
 	color: #1f3f7a;
@@ -549,7 +549,7 @@ h6 {
 	transition: transform 0.3s;
 }
 
-.close:hover {
+.closeModal:hover {
 	transform: rotate(90deg);
 }
 
@@ -617,16 +617,29 @@ body {
 }
 
 .close {
-	float: right;
+	position: relative;
+	top: 3.25rem;
+	right: 2rem;
 	font-size: 20px;
 	cursor: pointer;
-	color: #aaa;
+	color: #1f3f7a;
 }
 
 .close:hover {
-	color: #000;
+	color: #18bfef;
 }
 
+@media screen and (max-width: 980px) {
+	.half {
+		flex-direction: column !important;
+		padding: 2.5rem !important;
+	}
+
+	.half * {
+		width: 100% !important;
+		padding: 0 !important;
+	}
+}
 
 blockquote {
 	border-left-color: #eeeeee;
@@ -5089,15 +5102,9 @@ ul.links {
 	color: #909498;
 	cursor: pointer;
 	display: block;
-	height: 3.25rem;
-	line-height: 3.25rem;
-	padding-right: 1.25rem;
 	position: absolute;
-	right: 0;
 	text-align: right;
-	top: 0;
-	/* vertical-align: middle; */
-	width: 7rem;
+	vertical-align: middle;
 }
 
 #header {
@@ -5123,9 +5130,9 @@ ul.links {
 	font-size: 1.25rem;
 }
 
-#navPanel .close:hover {
+/* #navPanel .close:hover {
 	color: #212931;
-}
+} */
 
 a:hover {
 	color: #0294a5 !important;
@@ -5169,6 +5176,11 @@ a:hover {
 		transform: translateX(0);
 		box-shadow: 0 0 1.5rem 0 rgba(0, 0, 0, 0.2);
 		visibility: visible;
+	}
+
+
+	ul.links {
+		flex-direction: column;
 	}
 
 }
