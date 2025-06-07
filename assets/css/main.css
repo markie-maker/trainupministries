@@ -23,6 +23,14 @@ p {
 	z-index: -1;
 }
 
+#introBg * {
+	height: 100vh;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: -1;
+}
+
 /* Shadow so text can be seen */
 
 #introBg::after {
@@ -629,7 +637,7 @@ body {
 
 .close {
 	position: relative;
-	top: 3.25rem;
+	top: 2.75rem;
 	right: 2rem;
 	font-size: 20px;
 	cursor: pointer;
@@ -642,7 +650,7 @@ body {
 
 @media screen and (max-width: 980px) {
 	.half {
-		flex-direction: column !important;
+		flex-direction: column-reverse !important;
 		padding: 2.5rem !important;
 	}
 
@@ -661,14 +669,6 @@ body {
 
 	#intro {
 		height: 100vh;
-	}
-
-	#introBg * {
-		height: 100vh;
-		position: fixed;
-		top: 0;
-		left: 0;
-		z-index: -1;
 	}
 
 	#navPanelToggle {
