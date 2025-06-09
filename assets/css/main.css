@@ -1,6 +1,15 @@
 @import url(fontawesome-all.min.css);
 @import url("https://fonts.googleapis.com/css?family=Merriweather:300,700,300italic,700italic|Source+Sans+Pro:900");
 
+#footer {
+	display: none !important;
+}
+
+#story p {
+	text-indent: 1.5rem;
+	/* line-height: 1.5; */
+}
+
 p {
 	font-family: Verdana, Geneva, Tahoma, sans-serif !important;
 }
@@ -711,6 +720,7 @@ hr {
 .row.aln-left {
 	justify-content: flex-start;
 }
+
 
 .row.aln-center {
 	justify-content: center;
