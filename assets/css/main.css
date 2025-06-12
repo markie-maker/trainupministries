@@ -5,11 +5,6 @@
 	display: none !important;
 }
 
-#story p {
-	text-indent: 1.5rem;
-	/* line-height: 1.5; */
-}
-
 p {
 	font-family: Verdana, Geneva, Tahoma, sans-serif !important;
 }
@@ -334,7 +329,7 @@ i {
 }
 
 p {
-	text-align: justify;
+	text-align: left;
 	margin: 0 0 2rem 0;
 }
 
@@ -5230,4 +5225,41 @@ a:hover {
 		flex-direction: column;
 	}
 
+}
+
+
+html {
+	font-size: 100% !important;
+}
+
+/* 16px */
+
+h1 {
+	font-size: 4.210rem !important;
+	/* 67.36px */
+}
+
+h2 {
+	font-size: 3.158rem !important;
+	/* 50.56px */
+}
+
+h3 {
+	font-size: 2.369rem !important;
+	/* 37.92px */
+}
+
+h4 {
+	font-size: 1.777rem !important;
+	/* 28.48px */
+}
+
+h5 {
+	font-size: 1.333rem !important;
+	/* 21.28px */
+}
+
+small {
+	font-size: 0.750rem !important;
+	/* 12px */
 }
