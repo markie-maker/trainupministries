@@ -2,6 +2,55 @@
     {
         "title": "Community Service Day",
         "modalId": "communityService",
-        "date": "2025-03-15"
+        "description": "Join us for a day of community service where we will be cleaning up local parks and helping out at the food bank.",
+        "location": "City Park",
+        "date": "2025-03-15",
+        "time": "9:00 AM - 3:00 PM",
+        "image": "communityService.jpg"
+    },
+    {
+        "title": "Local Farmers Market",
+        "modalId": "farmersMarket",
+        "description": "Visit our local farmers market to support local farmers and artisans. Fresh produce, handmade goods, and more!",
+        "location": "Downtown Square",
+        "date": "2025-03-22",
+        "time": "8:00 AM - 1:00 PM",
+        "image": "farmersMarket.jpg"
+    },
+    {
+        "title": "Spring Music Festival",
+        "modalId": "musicFestival",
+        "description": "Enjoy a weekend of live music from local bands and artists at the annual Spring Music Festival.",
+        "location": "City Amphitheater",
+        "date": "2025-04-05",
+        "time": "12:00 PM - 10:00 PM",
+        "image": "musicFestival.jpg"
+    },
+    {
+        "title": "Charity Run for Health",
+        "modalId": "charityRun",
+        "description": "Participate in our charity run to raise funds for local health initiatives. All ages welcome!",
+        "location": "City Sports Complex",
+        "date": "2025-04-12",
+        "time": "8:00 AM - 12:00 PM",
+        "image": "charityRun.jpg"
+    },
+    {
+        "title": "Tech Conference 2025",
+        "modalId": "techConference",
+        "description": "A gathering of tech enthusiasts and professionals to discuss the latest trends in technology.",
+        "location": "Convention Center",
+        "date": "2025-04-20",
+        "time": "10:00 AM - 5:00 PM",
+        "image": "techConference.jpg"
+    },
+    {
+        "title": "Art Exhibition Opening",
+        "modalId": "artExhibition",
+        "description": "Explore the latest works from local artists at our annual art exhibition opening.",
+        "location": "City Art Gallery",
+        "date": "2025-05-01",
+        "time": "6:00 PM - 9:00 PM",
+        "image": "artExhibition.jpg"
     }
 ]

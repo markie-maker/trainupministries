@@ -101,6 +101,20 @@
             background-color: #bbdefb;
             cursor: pointer;
         }
+
+        .dateTime {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+            width: 100%;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 10px;
+        }
+
+        .location {
+            padding: 10px 0;
+            border-bottom: 1px solid #ccc;
+        }
     </style>
 </head>
 
@@ -145,7 +159,7 @@
             </section>
             <section>
                 <div id="eventContainer">
-                    <div class="event">
+                    <!-- <div class="event">
 
                         <h3>Community Service Day</h3>
                         <img src="communityService.jpg" alt="">
@@ -163,7 +177,7 @@
                             include workshops,
                             worship sessions, and outdoor adventures.</p>
                         <a class="button primary fit">RSVP</a>
-                    </div>
+                    </div> -->
                 </div>
             </section>
 
@@ -188,84 +202,6 @@
                 <button style="max-width: 62rem; margin: 1rem auto;" class="alt button fit"
                     onclick="resetCalendar()">Reset
                     Calendar</button>
-
-                <script>
-                    const calendar = document.getElementById('calendar');
-                    const title = document.getElementById('calendar-title');
-
-                    let currentDate = new Date();
-
-                    function loadCalendar(month, year) {
-                        calendar.innerHTML = '';
-                        const daysInMonth = new Date(year, month + 1, 0).getDate();
-                        const startDayIndex = new Date(year, month, 1).getDay();
-
-                        title.textContent = `${new Date(year, month).toLocaleString('default', { month: 'long' })} ${year}`;
-
-                        const weekdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-                        weekdays.forEach(day => {
-                            const header = document.createElement('div');
-                            header.className = 'header';
-                            header.textContent = day;
-                            calendar.appendChild(header);
-                        });
-
-                        for (let i = 0; i < startDayIndex; i++) {
-                            calendar.appendChild(document.createElement('div'));
-                        }
-
-                        for (let day = 1; day <= daysInMonth; day++) {
-                            const dayBox = document.createElement('div');
-                            dayBox.className = 'day';
-                            dayBox.id = `day-${year}-${month + 1}-${day}`;
-                            dayBox.innerHTML = `<strong>${day}</strong>`;
-                            calendar.appendChild(dayBox);
-                        }
-
-                        loadEvents(month + 1, year);
-                    }
-
-                    function resetCalendar() {
-                        currentDate = new Date();
-                        loadCalendar(currentDate.getMonth(), currentDate.getFullYear());
-                    }
-
-
-                    function changeMonth(step) {
-                        currentDate.setMonth(currentDate.getMonth() + step);
-                        loadCalendar(currentDate.getMonth(), currentDate.getFullYear());
-                    }
-
-                    function loadEvents(month, year) {
-                        fetch('events.json')
-                            .then(res => res.json())
-                            .then(events => {
-                                events.forEach(event => {
-                                    const date = new Date(event.date);
-                                    const eventYear = date.getFullYear();
-                                    const eventMonth = date.getMonth() + 1;
-                                    const eventDay = date.getDate();
-
-                                    if (eventMonth === month && eventYear === year) {
-                                        const box = document.getElementById(`day-${eventYear}-${eventMonth}-${eventDay}`);
-                                        if (box) {
-                                            const eventDiv = document.createElement('div');
-                                            eventDiv.className = 'calEvent';
-                                            eventDiv.textContent = event.title;
-                                            eventDiv.onclick = () => openModal(event.modalId);
-                                            box.appendChild(eventDiv);
-                                        }
-                                    }
-                                });
-                            })
-                            .catch(err => {
-                                console.error('Could not load events:', err);
-                            });
-                    }
-
-                    // Load current month on start
-                    loadCalendar(currentDate.getMonth(), currentDate.getFullYear());
-                </script>
             </section>
             <div class="eventModalBg"></div>
 
@@ -421,6 +357,111 @@
                 });
                 document.querySelector('.eventModalBg').style.display = 'none';
             });
+
+
+            // Calendar functionality
+            const calendar = document.getElementById('calendar');
+            const title = document.getElementById('calendar-title');
+
+            let currentDate = new Date();
+
+            function loadCalendar(month, year) {
+                calendar.innerHTML = '';
+                const daysInMonth = new Date(year, month + 1, 0).getDate();
+                const startDayIndex = new Date(year, month, 1).getDay();
+
+                title.textContent = `${new Date(year, month).toLocaleString('default', { month: 'long' })} ${year}`;
+
+                const weekdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+                weekdays.forEach(day => {
+                    const header = document.createElement('div');
+                    header.className = 'header';
+                    header.textContent = day;
+                    calendar.appendChild(header);
+                });
+
+                for (let i = 0; i < startDayIndex; i++) {
+                    calendar.appendChild(document.createElement('div'));
+                }
+
+                for (let day = 1; day <= daysInMonth; day++) {
+                    const dayBox = document.createElement('div');
+                    dayBox.className = 'day';
+                    dayBox.id = `day-${year}-${month + 1}-${day}`;
+                    dayBox.innerHTML = `<strong>${day}</strong>`;
+                    calendar.appendChild(dayBox);
+                }
+
+                loadEvents(month + 1, year);
+            }
+
+            function resetCalendar() {
+                currentDate = new Date();
+                loadCalendar(currentDate.getMonth(), currentDate.getFullYear());
+            }
+
+
+            function changeMonth(step) {
+                currentDate.setMonth(currentDate.getMonth() + step);
+                loadCalendar(currentDate.getMonth(), currentDate.getFullYear());
+            }
+
+            function loadEvents(month, year) {
+                fetch('events.json')
+                    .then(res => res.json())
+                    .then(events => {
+                        events.forEach(event => {
+                            const date = new Date(event.date);
+                            const eventYear = date.getFullYear();
+                            const eventMonth = date.getMonth() + 1;
+                            const eventDay = date.getDate();
+
+                            if (eventMonth === month && eventYear === year) {
+                                const box = document.getElementById(`day-${eventYear}-${eventMonth}-${eventDay}`);
+                                if (box) {
+                                    const eventDiv = document.createElement('div');
+                                    eventDiv.className = 'calEvent';
+                                    eventDiv.textContent = event.title;
+                                    eventDiv.onclick = () => openModal(event.modalId);
+                                    box.appendChild(eventDiv);
+                                }
+                            }
+                        });
+                    })
+                    .catch(err => {
+                        console.error('Could not load events:', err);
+                    });
+            }
+
+            // Load current month on start
+            loadCalendar(currentDate.getMonth(), currentDate.getFullYear());
+
+            //  Create event cards dynamically using JSON data
+
+            fetch('events.json')
+                .then(response => response.json())
+                .then(events => {
+                    eventContainer = document.getElementById('eventContainer');
+                    events.forEach(e => {
+                        const event = document.createElement('div');
+                        event.className = 'event';
+                        event.innerHTML = `
+                            <h4>${e.title}</h4>
+                            <img src="${e.image}" alt="">
+                            <div class="dateTime">
+                                <span class="date">${new Date(e.date).toLocaleDateString()}</span>
+                                <span class="time">${e.time}</span>
+                            </div>
+                            <span class="location">${e.location}</span>
+                            <p class="noMarginTop">${e.description}</p>
+                            <a onclick="openModal('${e.modalId}');" class="button primary fit">RSVP</a>
+                        `;
+                        eventContainer.appendChild(event);
+                    })
+                })
+                .catch(error => {
+                    console.error('Error fetching or parsing JSON:', error);
+                });
         </script>
 
 
