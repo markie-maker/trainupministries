@@ -6,7 +6,8 @@
         "location": "City Park",
         "date": "2025-03-15",
         "time": "9:00 AM - 3:00 PM",
-        "image": "communityService.jpg"
+        "image": "communityService.jpg",
+        "formURL": "https://example.com/community-service-signup"
     },
     {
         "title": "Local Farmers Market",
@@ -15,7 +16,8 @@
         "location": "Downtown Square",
         "date": "2025-03-22",
         "time": "8:00 AM - 1:00 PM",
-        "image": "farmersMarket.jpg"
+        "image": "farmersMarket.jpg",
+        "formURL": "https://example.com/farmers-market-signup"
     },
     {
         "title": "Spring Music Festival",
@@ -24,7 +26,8 @@
         "location": "City Amphitheater",
         "date": "2025-04-05",
         "time": "12:00 PM - 10:00 PM",
-        "image": "musicFestival.jpg"
+        "image": "musicFestival.jpg",
+        "formURL": "https://example.com/music-festival-signup"
     },
     {
         "title": "Charity Run for Health",
@@ -33,7 +36,8 @@
         "location": "City Sports Complex",
         "date": "2025-04-12",
         "time": "8:00 AM - 12:00 PM",
-        "image": "charityRun.jpg"
+        "image": "charityRun.jpg",
+        "formURL": "https://example.com/charity-run-signup"
     },
     {
         "title": "Tech Conference 2025",
@@ -42,7 +46,8 @@
         "location": "Convention Center",
         "date": "2025-04-20",
         "time": "10:00 AM - 5:00 PM",
-        "image": "techConference.jpg"
+        "image": "techConference.jpg",
+        "formURL": "https://example.com/tech-conference-signup"
     },
     {
         "title": "Art Exhibition Opening",
@@ -51,6 +56,7 @@
         "location": "City Art Gallery",
         "date": "2025-05-01",
         "time": "6:00 PM - 9:00 PM",
-        "image": "artExhibition.jpg"
+        "image": "artExhibition.jpg",
+        "formURL": "https://example.com/art-exhibition-signup"
     }
 ]

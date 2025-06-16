@@ -58,14 +58,35 @@
             margin-bottom: 10px;
             display: flex;
             justify-content: space-between;
-            width: 62rem;
+            width: 100%;
+            max-width: 62rem;
         }
 
         .calendar {
-            display: grid;
-            grid-template-columns: repeat(7, 1fr);
+            display: flex;
+            flex-wrap: wrap;
             gap: 0.5rem;
-            width: 62rem;
+            width: 100%;
+            max-width: 62rem;
+        }
+
+        .calendar>* {
+            flex: 1 0 calc((100% - 6 * 0.5rem) / 7);
+            /* 7 columns with 0.5rem gap between them */
+            max-width: calc((100% - 6 * 0.5rem) / 7);
+        }
+
+
+        .calendarContainer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0 auto;
+            max-width: 62rem;
+            width: 100%;
+            height: auto;
+            flex-shrink: 1;
+            position: relative;
         }
 
         .day,
@@ -84,6 +105,7 @@
         .day {
             background-color: #fff;
             vertical-align: top;
+            width: 13.6%;
         }
 
         .calEvent {
@@ -159,25 +181,6 @@
             </section>
             <section>
                 <div id="eventContainer">
-                    <!-- <div class="event">
-
-                        <h3>Community Service Day</h3>
-                        <img src="communityService.jpg" alt="">
-                        <p class="borderBottom">Date: March 15, 2025</p>
-                        <p class="noMarginTop">Join us for a day of service in our local community. We will be cleaning
-                            parks, helping at
-                            shelters, and more.</p>
-                        <a onclick="openModal('communityService');" class="button primary fit">RSVP</a>
-                    </div>
-                    <div class="event">
-                        <h3>Youth Retreat</h3>
-                        <img src="youthRetreat.jpg" alt="">
-                        <p class="borderBottom">Date: April 20-22, 2024</p>
-                        <p class="noMarginTop">A weekend retreat for youth to grow in faith and fellowship. Activities
-                            include workshops,
-                            worship sessions, and outdoor adventures.</p>
-                        <a class="button primary fit">RSVP</a>
-                    </div> -->
                 </div>
             </section>
 
@@ -185,28 +188,34 @@
             <!-- Calendar -->
             <section style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
 
-                <div class="calendar-nav">
-                    <button class="primary button" onclick="changeMonth(-1)"><svg xmlns="http://www.w3.org/2000/svg"
-                            height="20px" viewBox="0 -960 960 960" width="20px" fill="#FFFFFF">
-                            <path d="m330-444 201 201-51 51-288-288 288-288 51 51-201 201h438v72H330Z" />
-                        </svg></button>
-                    <h3 id="calendar-title"></h3>
-                    <button class="primary button" onclick="changeMonth(1)"><svg xmlns="http://www.w3.org/2000/svg"
-                            height="20px" viewBox="0 -960 960 960" width="20px" fill="#FFFFFF">
-                            <path d="M630-444H192v-72h438L429-717l51-51 288 288-288 288-51-51 201-201Z" />
-                        </svg></button>
-                </div>
-                <div class="calendar" id="calendar">
+                <div class="calendarContainer fit">
+                    <div class="calendar-nav">
+                        <button class="primary button" onclick="changeMonth(-1)"><svg xmlns="http://www.w3.org/2000/svg"
+                                height="20px" viewBox="0 -960 960 960" width="20px" fill="#FFFFFF">
+                                <path d="m330-444 201 201-51 51-288-288 288-288 51 51-201 201h438v72H330Z" />
+                            </svg></button>
+                        <h3 id="calendar-title"></h3>
+                        <button class="primary button" onclick="changeMonth(1)"><svg xmlns="http://www.w3.org/2000/svg"
+                                height="20px" viewBox="0 -960 960 960" width="20px" fill="#FFFFFF">
+                                <path d="M630-444H192v-72h438L429-717l51-51 288 288-288 288-51-51 201-201Z" />
+                            </svg></button>
+                    </div>
+                    <div class="calendar" id="calendar">
 
+                    </div>
+                    <button style="max-width: 62rem; margin: 1rem auto;" class="alt button fit"
+                        onclick="resetCalendar()">Reset
+                        Calendar</button>
                 </div>
-                <button style="max-width: 62rem; margin: 1rem auto;" class="alt button fit"
-                    onclick="resetCalendar()">Reset
-                    Calendar</button>
+
             </section>
             <div class="eventModalBg"></div>
 
 
             <!-- Modals -->
+            <div id="modalContainer">
+
+            </div>
             <div class="fade eventModal event" id="communityService">
                 <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 0;">
                     <h3 style="display: inline; margin: 0;">Community Service Day</h3>
@@ -341,13 +350,14 @@
             function openModal(modalId) {
                 document.querySelector('.eventModalBg').style.display = 'block';
                 document.getElementById(modalId).style.display = 'block';
-
+                document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
 
             }
 
             function closeModal(modalId) {
                 document.querySelector('.eventModalBg').style.display = 'none';
                 document.getElementById(modalId).style.display = 'none';
+                document.body.style.overflow = 'scroll'; // Re-enable scrolling when modal is closed
             }
 
             document.querySelector('.eventModalBg').addEventListener('click', () => {
@@ -355,6 +365,7 @@
                 modals.forEach(modal => {
                     modal.style.display = 'none';
                 });
+                document.body.style.overflow = 'scroll'; // Re-enable scrolling when background is clicked
                 document.querySelector('.eventModalBg').style.display = 'none';
             });
 
@@ -462,9 +473,56 @@
                 .catch(error => {
                     console.error('Error fetching or parsing JSON:', error);
                 });
+
+            // Add Modal for each event
+            fetch('events.json')
+                .then(response => response.json())
+                .then(events => {
+                    const modalContainer = document.querySelector('#modalContainer');
+                    events.forEach(e => {
+                        const modal = document.createElement('div');
+                        modal.className = 'fade eventModal event';
+                        modal.id = e.modalId;
+                        modal.innerHTML = `
+                                <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 0;">
+                                    <h3 style="display: inline; margin: 0;">${e.title}</h3>
+                                    <svg class="closeModal" onclick="closeModal('${e.modalId}');" xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 -960 960 960" width="32px" fill="#000000">
+                                        <path d="m251.33-204.67-46.66-46.66L433.33-480 204.67-708.67l46.66-46.66L480-526.67l228.67-228.66 46.66 46.66L526.67-480l228.66 228.67-46.66 46.66L480-433.33 251.33-204.67Z"/>
+                                    </svg>
+                                </div>
+                                <img src="${e.image}" alt="">
+                                <p class="borderBottom">Date: ${new Date(e.date).toLocaleDateString()}</p>
+                                <p style="margin-bottom: 1rem !important;" class="borderBottom noMarginTop">${e.description}</p>
+                                <form action="${e.formURL}" method="post">
+                                    <div style="margin: 0 auto; width: 100%;" class="modalForm row gtr-uniform">
+                                        <div style="width: 100%;" class="col-12">
+                                            <label for="name">Name</label>
+                                            <input type="text" name="name" id="${e.modalId}-name" value="" placeholder="Jane Doe" />
+                                        </div>
+                                        <div style="width: 100%;" class="col-12">
+                                            <label for="phone">Phone</label>
+                                            <input type="tel" name="phone" id="${e.modalId}-phone" value="" placeholder="(123)-456-789" />
+                                        </div>
+                                        <div style="width: 100%;" class="col-12">
+                                            <label for="guests">Guests attending with you:</label>
+                                            <input type="number" name="guests" id="${e.modalId}-guests" value="0" min="0" max="99" />
+                                        </div>
+                                        <div style="width: 100%;" class="col-12">
+                                            <ul class="actions">
+                                                <li><input type="submit" value="RSVP" class="primary" /></li>
+                                                <li><input type="reset" value="Reset" /></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </form>
+                            `;
+                        modalContainer.appendChild(modal);
+                    });
+                })
+                .catch(err => {
+                    console.error('Could not load events:', err);
+                });
         </script>
-
-
 </body>
 
 </html>

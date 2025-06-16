@@ -585,23 +585,6 @@ h6 {
 	transform: rotate(90deg);
 }
 
-.eventModal::-webkit-scrollbar {
-	width: 0.5rem;
-	position: absolute;
-	right: 0;
-}
-
-.eventModal::-webkit-scrollbar-track {
-	background-color: #eeeeee;
-	border-radius: 0 0.5rem 0.5rem 0;
-	width: 0.5rem;
-}
-
-.eventModal::-webkit-scrollbar-thumb {
-	background-color: #1f3f7a;
-	border-radius: 0.5rem;
-}
-
 .eventModal * {
 	max-width: 100%;
 }
@@ -3014,6 +2997,7 @@ input[type="radio"]:focus+label:before {
 	margin: 0 2rem 2rem 0;
 	top: 0.75rem;
 }
+
 
 .image.right {
 	float: right;
