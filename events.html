@@ -137,6 +137,32 @@
             padding: 10px 0;
             border-bottom: 1px solid #ccc;
         }
+
+        .closeModal {
+            margin-top: 0.75rem;
+        }
+
+        /* Disable calendar on smaller devices than a tablet */
+        @media screen and (max-width: 768px) {
+            .calendarContainer {
+                display: none;
+            }
+
+            .eventModalBg {
+                display: none;
+            }
+
+            .eventModal {
+                width: 90%;
+                max-width: 500px;
+                margin: 0 auto;
+            }
+
+            .event {
+                width: 100%;
+                max-width: 100%;
+            }
+        }
     </style>
 </head>
 
@@ -484,7 +510,7 @@
                         modal.className = 'fade eventModal event';
                         modal.id = e.modalId;
                         modal.innerHTML = `
-                                <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 0;">
+                                <div style="display: flex; justify-content: space-between; padding: 1rem 0;">
                                     <h3 style="display: inline; margin: 0;">${e.title}</h3>
                                     <svg class="closeModal" onclick="closeModal('${e.modalId}');" xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 -960 960 960" width="32px" fill="#000000">
                                         <path d="m251.33-204.67-46.66-46.66L433.33-480 204.67-708.67l46.66-46.66L480-526.67l228.67-228.66 46.66 46.66L526.67-480l228.66 228.67-46.66 46.66L480-433.33 251.33-204.67Z"/>
