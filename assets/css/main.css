@@ -21,10 +21,15 @@ p {
 .contact {
 	display: flex;
 	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
 }
 
 .contact section {
-	width: 25%;
+	width: auto;
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 #introBg {
@@ -1687,6 +1692,16 @@ hr {
 
 }
 
+@media screen and (max-width: 768px) {
+	.contact section h3 {
+		text-align: center;
+	}
+
+	.contact {
+		flex-direction: column;
+	}
+}
+
 @media screen and (max-width: 736px) {
 
 	.row {
@@ -1694,6 +1709,10 @@ hr {
 		flex-wrap: wrap;
 		box-sizing: border-box;
 		align-items: stretch;
+	}
+
+	.contact section h3 {
+		text-align: center;
 	}
 
 	.row>* {
@@ -2570,6 +2589,11 @@ button.large,
 		font-size: 1rem;
 		height: 3.75rem;
 		line-height: 3.75rem;
+	}
+
+	footer p.small {
+		margin-bottom: 0;
+		padding: 0rem 2rem 2rem 2rem;
 	}
 
 }
