@@ -22,10 +22,15 @@
         }
 
         .mySlides {
-            width: calc(100% - 8rem);
-            position: absolute;
+            width: 100%;
+            position: relative;
             opacity: 0;
             transition: opacity 1.5s ease-in-out;
+            grid-area: 1/1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
 
         .mySlides * {
@@ -38,7 +43,11 @@
         }
 
         .slideshow-container {
-            height: calc(150px + 6rem);
+            position: relative;
+            height: max-content;
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr;
         }
 
         @media only screen and (max-width: 300px) {
@@ -113,7 +122,8 @@
                 <p style="text-align: center;">Click the button below to make a secure donation through our payment
                     processor.</p>
                 <div style="display: flex; flex-direction: column; align-items: center; margin-bottom: 1rem;">
-                    <img src="Giving Icon.svg" alt="Giving Icon" style="width: 10rem; height: 10rem;">
+                    <img src="Giving Icon.svg" alt="Giving Icon"
+                        style="width: 10rem; height: 10rem; margin-bottom: 1rem;">
                     <a href="https://donate.stripe.com/cNidR16281jcduI31G5c400" target="_blank" style="width: 10rem;"
                         class="primary button">
                         Donate Now
