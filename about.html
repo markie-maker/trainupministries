@@ -121,7 +121,8 @@
                     online platform. This community of kids grew and by God’s grace we maintained a 25 to 50 kids
                     Zoom Bible study attendance.
                 </p>
-                <p>
+                <div id="imageHolder" class="image"></div>
+                <p id="imageParagraph">
                     <span class="image right">
                         <img src="teacher.JPG" alt="Teacher at TrainUp Ministries'" />
                     </span>
@@ -162,7 +163,7 @@
                         </div>
                     </div>
                 </div>
-                <div style="text-align: center; margin-bottom: 2rem;">
+                <div class="ourLeaders" style="text-align: center; margin-bottom: 2rem;">
                     <h3>Our Leaders</h3>
                     <div class="row gtr-50 gtr-uniform photoContainer">
                         <div class="col-4">
@@ -285,6 +286,45 @@
                 document.querySelector('#nav').classList.remove('main-nav');
             }
         });
+
+        const imageParagraph = document.querySelector('#imageParagraph');
+        const imageHolder = document.querySelector('#imageHolder');
+
+        function updateLayout() {
+            if (window.innerWidth < 480) {
+                imageParagraph.innerHTML = `
+            When COVID lockdown ended, it made sense to me to explore the idea of the youth meeting
+            possibly once a month in a physical setting. When we called the first meeting, we had about 50
+            kids and their parents show up; something we did not really expect. The following month, we did
+            a second physical meeting, a Worship Experience, and about a hundred kids and parents
+            showed up. At this rate, my wife and I knew that God was calling us into ministering to the lives
+            of young people. Since then, we have not looked back.
+        `;
+                imageHolder.innerHTML = `
+            <img src="teacher.JPG" style="width: 100%; height: auto; margin-bottom: 2rem;" alt="Teacher at TrainUp Ministries" />
+        `;
+                console.log('Image paragraph updated for mobile view');
+            } else {
+                imageParagraph.innerHTML = `
+            <span class="image right">
+                <img src="teacher.JPG" alt="Teacher at TrainUp Ministries" />
+            </span>
+            When COVID lockdown ended, it made sense to me to explore the idea of the youth meeting
+            possibly once a month in a physical setting. When we called the first meeting, we had about 50
+            kids and their parents show up; something we did not really expect. The following month, we did
+            a second physical meeting, a Worship Experience, and about a hundred kids and parents
+            showed up. At this rate, my wife and I knew that God was calling us into ministering to the lives
+            of young people. Since then, we have not looked back.
+        `;
+                imageHolder.innerHTML = ``;
+                console.log('Image paragraph updated for desktop view');
+            }
+        }
+
+        updateLayout();
+
+        window.addEventListener('resize', updateLayout);
+
     </script>
 
 

@@ -25,6 +25,7 @@ p {
 	justify-content: space-evenly;
 }
 
+
 .contact section {
 	width: auto;
 	position: relative;
@@ -319,6 +320,10 @@ body {
 	background-color: black;
 	height: 12rem;
 	margin-bottom: 0.5rem;
+}
+
+.photoContainer {
+	flex-wrap: wrap;
 }
 
 body,
@@ -5275,6 +5280,7 @@ a:hover {
 }
 
 
+
 html {
 	font-size: 100% !important;
 }
@@ -5285,6 +5291,13 @@ h1 {
 	font-size: 4.210rem !important;
 	/* 67.36px */
 }
+
+@media screen and (max-width: 480px) {
+	#intro h1 {
+		font-size: 3.158rem !important;
+	}
+}
+
 
 h2 {
 	font-size: 3.158rem !important;
