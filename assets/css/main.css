@@ -552,8 +552,8 @@ label {
 
 .event img {
 	border-radius: 0.5rem;
-	height: 15rem;
 	width: 100%;
+	aspect-ratio: 16/9;
 	object-fit: cover;
 
 	background-color: #eeeeee;
