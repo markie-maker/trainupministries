@@ -312,18 +312,24 @@ body {
 
 #teamPhoto {
 	background-color: black;
-	height: 24rem;
+	aspect-ratio: 32/9;
 	width: 100%;
 }
 
 .photo {
 	background-color: black;
-	height: 12rem;
+	aspect-ratio: 16/9;
 	margin-bottom: 0.5rem;
 }
 
 .photoContainer {
 	flex-wrap: wrap;
+}
+
+@media screen and (max-width: 768px) {
+	#teamPhoto {
+		aspect-ratio: 21/9;
+	}
 }
 
 body,
