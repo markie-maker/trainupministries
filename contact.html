@@ -47,7 +47,7 @@
 
         <!-- Main -->
         <div id="main">
-            <section class="wrapper style1 align-center">
+            <!-- <section class="wrapper style1 align-center">
                 <div class="inner">
                     <h2>Get in Touch</h2>
                     <p style="text-align: center;">
@@ -62,27 +62,27 @@
                         <li><a href="#" class="icon brands fa-whatsapp"><span class="label">Whatsapp</span></a></li>
                     </ul>
                 </div>
-            </section>
+            </section> -->
 
             <section class="wrapper style2 align-center">
                 <div class="inner">
-                    <h2>Contact Form</h2>
-                    <p style="text-align: center;">Please fill out the form below and we will get back to you as soon as
+                    <h2>Join TrainUp Ministries</h2>
+                    <p style="text-align: center;">Please fill out this form and we will get back to you as soon as
                         possible.</p>
                 </div>
 
-                <form method="post">
+                <form method="post" id="signUpForm">
                     <div class="row gtr-uniform">
                         <div class="col-12">
-                            <label for="name">Name</label>
+                            <label for="name">Name (Parent/Guardian)</label>
                             <input type="text" name="name" id="name" value="" placeholder="Jane Doe" />
                         </div>
                         <div class="col-6 col-12-xsmall">
-                            <label for="email">Email</label>
+                            <label for="email">Email (Parent/Guardian)</label>
                             <input type="email" name="email" id="email" value="" placeholder="example@gmail.com" />
                         </div>
                         <div class="col-6 col-12-xsmall">
-                            <label for="phone">Phone</label>
+                            <label for="phone">Phone (Parent/Guardian)</label>
                             <input type="tel" name="phone" id="phone" value="" placeholder="(123)-456-789" />
                         </div>
                         <div class="col-6 col-12-xsmall">
@@ -345,12 +345,38 @@
                             </select>
                         </div>
                         <div class="col-12">
+                            <label for="registrants">Amount of Registrants (Teens/Kids)</label>
+                            <input type="number" name="registrants" id="registrants" value="1" min="1" />
+                        </div>
+                        <!-- Registrants List -->
+                        <div class="col-6 registrant">
+                            <h4>Registrant 1</h4>
+                            <div class="row gtr-uniform col-12 registrant">
+                                <div class="col-12">
+                                    <label for="name-1">Name</label>
+                                    <input type="text" name="name-1" id="name-1" placeholder="John Doe" required />
+                                </div>
+
+                                <div class="col-12">
+                                    <label for="age-1">Age</label>
+                                    <input type="number" name="age-1" id="age-1" value="1" min="1" required />
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- <div class="col-12">
                             <label for="message">Message</label>
                             <textarea name="message" id="message" rows="4" placeholder="Type Here..."></textarea>
+                        </div> -->
+
+                        <div id="registrantContainer" class="col-12" style="padding-left: 0; padding-top: 0;">
+                            <!-- Additional registrants will be added here dynamically -->
+
                         </div>
-                        <div class="col-12">
+
+                        <div class="col-12" id="registrantActionBtns">
                             <ul class="actions">
-                                <li><input type="submit" value="Send Message" class="primary" /></li>
+                                <li><input type="submit" value="Join Now" class="primary" /></li>
                                 <li><input type="reset" value="Reset" /></li>
                             </ul>
                         </div>
@@ -447,9 +473,46 @@
                     }
                 });
             }
+
+            const registrantsInput = document.querySelector('#registrants');
+            const registrantsList = document.querySelector('#registrants-list');
+            const signUpForm = document.querySelector('#signUpForm');
+            const registrantDiv = document.createElement('div');
+
+            function createRegistrantFields() {
+
+                document.querySelectorAll('.registrant').forEach(el => el.remove());
+
+                const amountOfRegistrants = registrantsInput.value;
+                for (let i = 1; i <= amountOfRegistrants; i++) {
+                    registrantDiv.innerHTML += `
+                        <div class="col-6 registrant">
+                            <h4>Registrant ${i}</h4>
+                            <div class="row gtr-uniform col-12 registrant">
+                                <div class="col-12">
+                                    <label for="name-${i}">Name</label>
+                                    <input type="text" name="name-${i}" id="name-${i}" placeholder="John Doe" required />
+                                </div>
+
+                                <div class="col-12">
+                                    <label for="age-${i}">Age</label>
+                                    <input type="number" name="age-${i}" id="age-${i}" value="1" min="1" required />
+                                </div>
+                            </div>
+                        </div>
+                        `;
+
+                    // add the new registrants second to last in signUpForm
+                    // signUpForm.insertBefore(registrantDiv, document.querySelector('#registrantActionBtns'));
+                    document.querySelector('#registrantContainer').appendChild(registrantDiv);
+                }
+            }
+
+
+            createRegistrantFields();
+            registrantsInput.addEventListener('input', createRegistrantFields);
+
         </script>
-
-
 </body>
 
 </html>
