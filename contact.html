@@ -83,7 +83,7 @@
                         </div>
                         <div class="col-6 col-12-xsmall">
                             <label for="phone">Phone (Parent/Guardian)</label>
-                            <input type="tel" name="phone" id="phone" value="" placeholder="(123)-456-789" />
+                            <input type="tel" name="phone" id="phone" value="" placeholder="(123) 456-7890" />
                         </div>
                         <div class="col-6 col-12-xsmall">
                             <label for="country">Country</label>
@@ -357,9 +357,15 @@
                                     <input type="text" name="name-1" id="name-1" placeholder="John Doe" required />
                                 </div>
 
-                                <div class="col-12">
+                                <div class="col-12-xsmall col-6">
                                     <label for="age-1">Age</label>
                                     <input type="number" name="age-1" id="age-1" value="1" min="1" required />
+                                </div>
+
+                                <div class="col-12-xsmall col-6">
+                                    <label for="phone-1">Phone</label>
+                                    <input type="tel" name="phone-1" id="phone-1" placeholder="(123) 456-7890"
+                                        required />
                                 </div>
                             </div>
                         </div>
@@ -494,10 +500,16 @@
                                     <input type="text" name="name-${i}" id="name-${i}" placeholder="John Doe" required />
                                 </div>
 
-                                <div class="col-12">
+                                <div class="col-12-xsmall col-6">
                                     <label for="age-${i}">Age</label>
                                     <input type="number" name="age-${i}" id="age-${i}" value="1" min="1" required />
                                 </div>
+
+                                <div class="col-12-xsmall col-6">
+                                    <label for="phone-${i}">Phone</label>
+                                    <input type="tel" name="phone-${i}" id="phone-${i}" placeholder="(123) 456-7890" required />
+                                </div>
+
                             </div>
                         </div>
                         `;
