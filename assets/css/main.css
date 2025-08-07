@@ -316,15 +316,21 @@ body {
 	width: 100%;
 }
 
-.photo {
-	background-color: black;
-	aspect-ratio: 16/9;
-	margin-bottom: 0.5rem;
+.photoContainer {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+	/* Optional: spacing between photos */
 }
 
-.photoContainer {
-	flex-wrap: wrap;
+.photo {
+	background-color: black;
+	margin-bottom: 0.5rem;
+	min-height: 175px;
+	width: auto;
+	aspect-ratio: 16/9;
 }
+
 
 @media screen and (max-width: 768px) {
 	#teamPhoto {
@@ -334,7 +340,7 @@ body {
 
 header {
 	background-position: center;
-	background-size: 100px;
+	background-size: 100pxs;
 }
 
 body,
