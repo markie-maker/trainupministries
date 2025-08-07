@@ -52,6 +52,44 @@
                 font-size: 11px;
             }
         }
+
+        /* Make picture darker */
+        #header::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        #header {
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: calc(50vh + 4rem);
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            background-color: #f1f1f1;
+        }
+
+        .header-image {
+            width: 100%;
+            height: calc(50vh + 4rem);
+            object-fit: cover;
+            display: block;
+
+            position: absolute;
+
+
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
     </style>
 </head>
 
@@ -61,9 +99,9 @@
     <div id="wrapper">
 
         <!-- Header -->
-        <header id="header"
-            style="padding: 0; display: flex; justify-content: center; height: calc(50vh + 4rem); background-image: url('workTeam.jpg'); background-attachment: fixed;">
-            <h1>About</h1>
+        <header id="header">
+            <img class="header-image" src="TrainUp Team.JPG" alt="">
+            <h1 style="z-index: 10;">About</h1>
         </header>
 
         <!-- Nav -->
@@ -158,6 +196,7 @@
                     <div class="row gtr-50 gtr-uniform photoContainer">
                         <div class="col-12">
                             <span id="teamPhoto" class="image fit">
+                                <img src="TrainUp Leaders.JPG" alt="TrainUp Leaders">
                             </span>
                         </div>
                     </div>
@@ -297,10 +336,10 @@
                 imageHolder.innerHTML = `
             <img src="teacher.JPG" style="width: 100%; height: auto; margin-bottom: 2rem;" alt="Teacher at TrainUp Ministries" />
         `;
-                for (let child of photoContainer.children) {
-                    child.classList.add('col-12');
-                    child.classList.remove('col-4');
-                }
+                // for (let child of photoContainer.children) {
+                //     child.classList.add('col-12');
+                //     child.classList.remove('col-4');
+                // }
             } else {
                 imageParagraph.innerHTML = `
             <span class="image right">
@@ -313,11 +352,11 @@
             showed up. At this rate, my wife and I knew that God was calling us into ministering to the lives
             of young people. Since then, we have not looked back.
         `;
-                imageHolder.innerHTML = ``;
-                for (const child of photoContainer.children) {
-                    child.classList.add('col-4');
-                    child.classList.remove('col-12');
-                }
+                // imageHolder.innerHTML = ``;
+                // for (const child of photoContainer.children) {
+                //     child.classList.add('col-4');
+                //     child.classList.remove('col-12');
+                // }
             }
         }
 
