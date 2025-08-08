@@ -320,17 +320,35 @@ body {
 	display: flex;
 	flex-wrap: wrap;
 	gap: 0.5rem;
-	/* Optional: spacing between photos */
+	justify-content: space-around;
+
+}
+
+.photo div * {
+	margin: 0;
+}
+
+.photo div {
+	padding: 1rem 0.75re, ;
+}
+
+.imageContainer {
+	position: relative;
+	width: 250px;
+	height: min-content;
+	flex-shrink: 1;
+	padding: 0;
+}
+
+.photo img {
+	height: 250px;
+	width: 250px;
 }
 
 .photo {
-	background-color: black;
-	margin-bottom: 0.5rem;
-	min-height: 175px;
-	width: auto;
-	aspect-ratio: 16/9;
+	height: auto;
+	width: 250px;
 }
-
 
 @media screen and (max-width: 768px) {
 	#teamPhoto {
@@ -340,7 +358,7 @@ body {
 
 header {
 	background-position: center;
-	background-size: 100pxs;
+	background-size: 100px;
 }
 
 body,
