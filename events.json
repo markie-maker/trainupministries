@@ -1,62 +1,12 @@
 [
     {
-        "title": "Community Service Day",
-        "modalId": "communityService",
-        "description": "Join us for a day of community service where we will be cleaning up local parks and helping out at the food bank.",
-        "location": "City Park",
-        "date": "2025-03-15",
-        "time": "9:00 AM - 3:00 PM",
-        "image": "communityService.jpg",
-        "formURL": "https://example.com/community-service-signup"
-    },
-    {
-        "title": "Local Farmers Market",
-        "modalId": "farmersMarket",
-        "description": "Visit our local farmers market to support local farmers and artisans. Fresh produce, handmade goods, and more!",
-        "location": "Downtown Square",
-        "date": "2025-03-22",
-        "time": "8:00 AM - 1:00 PM",
-        "image": "farmersMarket.jpg",
-        "formURL": "https://example.com/farmers-market-signup"
-    },
-    {
-        "title": "Spring Music Festival",
-        "modalId": "musicFestival",
-        "description": "Enjoy a weekend of live music from local bands and artists at the annual Spring Music Festival.",
-        "location": "City Amphitheater",
-        "date": "2025-04-05",
-        "time": "12:00 PM - 10:00 PM",
-        "image": "musicFestival.jpg",
-        "formURL": "https://example.com/music-festival-signup"
-    },
-    {
-        "title": "Charity Run for Health",
-        "modalId": "charityRun",
-        "description": "Participate in our charity run to raise funds for local health initiatives. All ages welcome!",
-        "location": "City Sports Complex",
-        "date": "2025-04-12",
-        "time": "8:00 AM - 12:00 PM",
-        "image": "charityRun.jpg",
-        "formURL": "https://example.com/charity-run-signup"
-    },
-    {
-        "title": "Tech Conference 2025",
-        "modalId": "techConference",
-        "description": "A gathering of tech enthusiasts and professionals to discuss the latest trends in technology.",
-        "location": "Convention Center",
-        "date": "2025-04-20",
-        "time": "10:00 AM - 5:00 PM",
-        "image": "techConference.jpg",
-        "formURL": "https://example.com/tech-conference-signup"
-    },
-    {
-        "title": "Art Exhibition Opening",
-        "modalId": "artExhibition",
-        "description": "Explore the latest works from local artists at our annual art exhibition opening.",
-        "location": "City Art Gallery",
-        "date": "2025-05-01",
-        "time": "6:00 PM - 9:00 PM",
-        "image": "artExhibition.jpg",
-        "formURL": "https://example.com/art-exhibition-signup"
+        "title": "Arizona Trip 2025",
+        "modalId": "arizonaTrip",
+        "description": "Join us for a trip to Gilbert Arizona from October 10-12, 2025, to experience the Eden Youth Conference. Please RSVP if you have interest and you will be added to a temporary Whatsapp group for more info.",
+        "location": "Gilbert, Arizona",
+        "date": "2025-10-10",
+        "time": "",
+        "image": "arizonaTrip.jpg",
+        "formURL": "https://formspree.io/f/mnnzyqyn"
     }
 ]
