@@ -29,19 +29,20 @@
             background-attachment: fixed;
             background-repeat: no-repeat;
             background-size: cover;
-            background-position: top;
+            background-position: center;
             background-color: #f1f1f1;
         }
 
         .header-image {
-            width: 100%;
-            height: calc(50vh + 4rem);
+            width: 100vw;
+            height: 100vh;
+
             object-fit: cover;
-            display: block;
+            object-position: top;
 
             position: absolute;
-
-
+            inset: 0;
+            z-index: 2;
         }
     </style>
 </head>
@@ -52,10 +53,11 @@
     <div id="wrapper">
 
         <!-- Header -->
-        <header id="header" style="padding: 0; display: flex; height: calc(50vh + 4rem);">
-            <img src="TrainUp Leaders.jpg" alt="TrainUp Leaders" class="header-image" style="justify-self: start;">
-            <h1 style="z-index: 10; justify-self: center;">Contact Us</h1>
+        <header id="header"
+            style="z-index: 3; background-color: transparent; padding: 0; display: flex; height: calc(50vh + 4rem);">
+            <h1 style="z-index: 3; ">Contact Us</h1>
         </header>
+        <img src="TrainUp Leaders.JPG" alt="TrainUp Leaders" class="header-image">
 
         <!-- Nav -->
         <nav id="nav">
