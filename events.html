@@ -163,6 +163,43 @@
                 max-width: 100%;
             }
         }
+
+        #header {
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: calc(50vh + 4rem);
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            background-color: #f1f1f1;
+        }
+
+        .header-image {
+            width: 100%;
+            height: calc(50vh + 4rem);
+            object-fit: cover;
+            display: block;
+
+            position: absolute;
+
+
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        #header::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.2);
+        }
     </style>
 </head>
 
@@ -173,9 +210,9 @@
     <div id="wrapper">
 
         <!-- Header -->
-        <header id="header"
-            style="padding: 0; display: flex; justify-content: center; height: calc(50vh + 4rem); background-image: url('workTeam.jpg'); background-attachment: fixed;">
-            <h1>Events</h1>
+        <header id="header" style="padding: 0; display: flex; justify-content: center; height: calc(50vh + 4rem);">
+            <img src="vineyard-header.jpg" alt="Temecula" class="header-image">
+            <h1 style="z-index: 10;">Events</h1>
         </header>
 
         <!-- Nav -->
