@@ -55,6 +55,40 @@
                 font-size: 11px;
             }
         }
+
+        #header::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        #header {
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: calc(50vh + 4rem);
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            background-color: #f1f1f1;
+        }
+
+        .header-image {
+            width: 100vw;
+            height: 100vh;
+
+            object-fit: cover;
+
+            position: absolute;
+            top: 0;
+            z-index: 2;
+        }
     </style>
 </head>
 
@@ -65,9 +99,10 @@
 
         <!-- Header -->
         <header id="header"
-            style="padding: 0; display: flex; justify-content: center; height: calc(50vh + 4rem); background-image: url('give.jpg'); background-attachment: fixed; background-size: cover; background-position: bottom;">
-            <h1>Give</h1>
+            style="background-color: transparent; z-index: 3; padding: 0; display: flex; justify-content: center; height: calc(50vh + 4rem);">
+            <h1 style="z-index: 3;">Give</h1>
         </header>
+        <img src="give.jpg" alt="Giving" class="header-image">
 
         <!-- Nav -->
         <nav id="nav">
