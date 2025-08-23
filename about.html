@@ -78,17 +78,14 @@
         }
 
         .header-image {
-            width: 100%;
-            height: calc(50vh + 4rem);
+            width: 100vw;
+            height: 100vh;
+
             object-fit: cover;
-            display: block;
 
             position: absolute;
-
-
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            top: 0;
+            z-index: 2;
         }
     </style>
 </head>
@@ -99,10 +96,10 @@
     <div id="wrapper">
 
         <!-- Header -->
-        <header id="header">
-            <img class="header-image" src="TrainUp Team.JPG" alt="">
-            <h1 style="z-index: 10;">About</h1>
+        <header style="z-index: 3; background-color: transparent;" id="header">
+            <h1 style="z-index: 3;">About</h1>
         </header>
+        <img class="header-image" src="TrainUp Team.JPG" alt="">
 
         <!-- Nav -->
         <nav id="nav">
