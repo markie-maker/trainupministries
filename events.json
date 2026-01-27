@@ -1,12 +1,142 @@
 [
     {
-        "title": "Prayer & Fasting Kesha",
-        "modalId": "kesha",
-        "description": "Join us for a night of prayer and fasting from 9 PM to 1 AM as we seek God's presence and guidance together. This will take place on Friday, January 16, 2026, at 39681 Avenida Acacias, Murrieta, CA 92563. Don't miss this opportunity to deepen your spiritual journey!",
-        "location": "39681 Avenida Acacias, Murrieta, CA 92563",
-        "date": "2026-1-16",
-        "time": "9:00PM - 1:00AM",
-        "image": "kesha.jpg",
-        "formURL": "https://formspree.io/f/xwvpgrra"
+        "title": "Elevate Night: Valentine Gift Exchange",
+        "modalId": "february-elevate",
+        "description": "A special Elevate Night for Parents & Youth featuring a Valentine Gift Exchange.",
+        "location": "TBD",
+        "date": "TBD",
+        "time": "2:00PM - 5:00PM",
+        "image": "prayer&fasting.jpg",
+        "formURL": ""
+    },
+    {
+        "title": "Elevate Night: TrainUp Volunteer Appreciation",
+        "modalId": "march-elevate",
+        "description": "Celebrating our wonderful volunteers during our monthly Elevate Night.",
+        "location": "TBD",
+        "date": "03/21/2026",
+        "time": "2:00PM - 5:00PM",
+        "image": "prayer&fasting.jpg",
+        "formURL": ""
+    },
+    {
+        "title": "Thrive Conference",
+        "modalId": "april-thrive",
+        "description": "A multi-day conference designed to help you thrive in your spiritual walk.",
+        "location": "TBD",
+        "date": "04/11/2026 — 04/12/2026",
+        "time": "TBD",
+        "image": "prayer&fasting.jpg",
+        "formURL": ""
+    },
+    {
+        "title": "Kesha (Parents, Youth, & Friends)",
+        "modalId": "april-kesha",
+        "description": "An evening Kesha gathering for parents, youth, and friends.",
+        "location": "TBD",
+        "date": "04/18/2026",
+        "time": "7:00PM - 12:00AM",
+        "image": "prayer&fasting.jpg",
+        "formURL": ""
+    },
+    {
+        "title": "Elevate Night: Living Room Worship",
+        "modalId": "may-elevate",
+        "description": "Join us for a unique Elevate Night as we record songs for Living Room Worship.",
+        "location": "TBD",
+        "date": "05/23/2026",
+        "time": "2:00PM - 5:00PM",
+        "image": "prayer&fasting.jpg",
+        "formURL": ""
+    },
+    {
+        "title": "All Youth SoCal Summer Camp",
+        "modalId": "july-camp",
+        "description": "Annual Southern California Summer Camp for all youth.",
+        "location": "Southern California",
+        "date": "TBD",
+        "time": "TBD",
+        "image": "prayer&fasting.jpg",
+        "formURL": ""
+    },
+    {
+        "title": "Arizona Youth Conference",
+        "modalId": "july-arizona",
+        "description": "Youth conference trip to Arizona.",
+        "location": "Arizona",
+        "date": "07/30/2026 — 08/02/2026",
+        "time": "TBD",
+        "image": "prayer&fasting.jpg",
+        "formURL": ""
+    },
+    {
+        "title": "Sports Day",
+        "modalId": "august-sports",
+        "description": "A day of fun, fellowship, and sports.",
+        "location": "TBD",
+        "date": "08/08/2026",
+        "time": "TBD",
+        "image": "prayer&fasting.jpg",
+        "formURL": ""
+    },
+    {
+        "title": "Elevate Night: Movie Night",
+        "modalId": "august-movie",
+        "description": "Join us for a fun community Movie Night.",
+        "location": "TBD",
+        "date": "08/22/2026",
+        "time": "2:00PM - 5:00PM",
+        "image": "prayer&fasting.jpg",
+        "formURL": ""
+    },
+    {
+        "title": "Kesha",
+        "modalId": "october-kesha",
+        "description": "Join us for our October evening Kesha service.",
+        "location": "TBD",
+        "date": "10/10/2026",
+        "time": "7:00PM - 12:00AM",
+        "image": "prayer&fasting.jpg",
+        "formURL": ""
+    },
+    {
+        "title": "Elevate Night: Palm Springs Retreat",
+        "modalId": "october-retreat",
+        "description": "A special retreat for Sons & Fathers, Daughters & Mothers.",
+        "location": "Palm Springs, CA",
+        "date": "10/31/2026",
+        "time": "TBD",
+        "image": "prayer&fasting.jpg",
+        "formURL": ""
+    },
+    {
+        "title": "Elevate Night: Thanksgiving Theme",
+        "modalId": "november-elevate",
+        "description": "A night of gratitude and fellowship with a Thanksgiving theme.",
+        "location": "TBD",
+        "date": "11/21/2026",
+        "time": "2:00PM - 5:00PM",
+        "image": "prayer&fasting.jpg",
+        "formURL": ""
+    },
+    {
+        "title": "Nativity Night",
+        "modalId": "december-nativity",
+        "description": "Celebrating the birth of Christ during our Nativity Night.",
+        "location": "TBD",
+        "date": "12/19/2026",
+        "time": "TBD",
+        "image": "prayer&fasting.jpg",
+        "formURL": ""
+    },
+    {
+        "title": "Mission St. Riverside Christmas Carols",
+        "modalId": "december-carols",
+        "description": "Spreading Christmas cheer through caroling in Riverside.",
+        "location": "Mission St. Riverside",
+        "date": "12/24/2026",
+        "time": "TBD",
+        "image": "prayer&fasting.jpg",
+        "formURL": ""
     }
 ]

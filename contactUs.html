@@ -57,11 +57,12 @@
             style="z-index: 3; background-color: transparent; padding: 0; display: flex; height: calc(50vh + 4rem);">
             <h1 style="z-index: 3; ">Contact Us</h1>
         </header>
-        <img src="TrainUp Leaders.JPG" alt="TrainUp Leaders" class="header-image">
+        <img src="TrainUp Leaders.JPG" alt="TrainUp Leaders" class="header-image" loading="lazy">
 
         <!-- Nav -->
         <nav id="nav">
-            <a href="./" id="navLink" class="logo"><img src="transparentLogo.svg" id="navLogo" alt="TrainUp Logo"></a>
+            <a href="./" id="navLink" class="logo"><img src="transparentLogo.svg" id="navLogo" alt="TrainUp Logo"
+                    loading="lazy"></a>
             <ul class="links">
                 <li><a href="./">Home</a></li>
                 <li><a href="./about">About</a></li>
@@ -112,11 +113,15 @@
                         <div class="col-6 col-12-xsmall">
                             <label for="email">Email (Parent/Guardian)</label>
                             <input type="email" name="email" id="email" value="" placeholder="example@gmail.com"
-                                required />
+                                pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+                                title="Please enter a valid email address (e.g., example@domain.com)" required />
                         </div>
                         <div class="col-6 col-12-xsmall">
                             <label for="phone">Phone (Parent/Guardian)</label>
-                            <input type="tel" name="phone" id="phone" value="" placeholder="(123) 456-7890" required />
+                            <input type="tel" name="phone" id="phone" value="" placeholder="(123) 456-7890"
+                                pattern="(\(\d{3}\)|\d{3})[\s.-]?\d{3}[\s.-]?\d{4}"
+                                title="Please enter a valid phone number (e.g., (123) 456-7890 or 123-456-7890)"
+                                required />
                         </div>
                         <div class="col-6 col-12-xsmall">
                             <label for="country">Country</label>
@@ -422,6 +427,60 @@
                 </form>
             </section>
 
+            <!-- Worship Team Signup Form -->
+            <section class="wrapper style2 align-center">
+                <div class="inner">
+                    <h2>Join Our Worship Team</h2>
+                    <p style="text-align: center;">Sign up to be part of our worship team and share your talents with
+                        us.</p>
+                </div>
+
+                <form method="post" action="https://formspree.io/f/xnnzovzl" id="worshipTeamForm">
+                    <div class="row gtr-uniform">
+                        <div class="col-6 col-12-xsmall">
+                            <label for="worship-name">Name</label>
+                            <input type="text" name="name" id="worship-name" value="" placeholder="Jane Doe" required />
+                        </div>
+                        <div class="col-6 col-12-xsmall">
+                            <label for="worship-age">Age</label>
+                            <input type="number" name="age" id="worship-age" value="" placeholder="eg. 15" min="1"
+                                required />
+                        </div>
+                        <div class="col-12">
+                            <label for="worship-phone">Phone Number</label>
+                            <input type="tel" name="phone" id="worship-phone" value="" placeholder="(123)-456-7890"
+                                pattern="\(\d{3}\)-\d{3}-\d{4}"
+                                title="Please enter a valid phone number in the format (123)-456-7890" required />
+                        </div>
+                        <div class="col-12">
+                            <label for="talent">Talent/Instrument</label>
+                            <select name="talent" id="talent" required>
+                                <option value="">-- Select a Talent --</option>
+                                <option value="Drums">Drums</option>
+                                <option value="Guitar">Guitar</option>
+                                <option value="Piano">Piano</option>
+                                <option value="Singing">Singing</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="col-12" id="otherTalentContainer" style="display: none;">
+                            <label for="other-talent">Please specify your talent (max 50 words)</label>
+                            <textarea name="other-talent" id="other-talent" placeholder="Describe your talent..."
+                                rows="4"
+                                style="resize: vertical; width: 100%; padding: 10px; min-height: 80px; max-height: 300px;"></textarea>
+                            <small id="wordCount" style="color: #999; display: block; margin-top: 5px;">0 / 50
+                                words</small>
+                        </div>
+                        <div class="col-12">
+                            <ul class="actions">
+                                <li><input type="submit" value="Join Worship Team" class="primary" /></li>
+                                <li><input type="reset" value="Reset" /></li>
+                            </ul>
+                        </div>
+                    </div>
+                </form>
+            </section>
+
 
             <!-- Footer -->
             <footer id="footer" style="flex-direction: column;">
@@ -536,7 +595,9 @@
 
                                 <div class="col-12-xsmall col-6">
                                     <label for="phone-${i}">Phone</label>
-                                    <input type="tel" name="phone-${i}" id="phone-${i}" placeholder="(123) 456-7890"/>
+                                    <input type="tel" name="phone-${i}" id="phone-${i}" placeholder="(123) 456-7890"
+                                        pattern="(\(\d{3}\)|\d{3})[\s.-]?\d{3}[\s.-]?\d{4}"
+                                        title="Please enter a valid phone number (e.g., (123) 456-7890 or 123-456-7890)"/>
                                 </div>
 
                             </div>
@@ -552,6 +613,60 @@
 
             createRegistrantFields();
             registrantsInput.addEventListener('input', createRegistrantFields);
+
+            // Worship Team Form - Show/Hide Other Talent Input
+            const talentSelect = document.querySelector('#talent');
+            const otherTalentContainer = document.querySelector('#otherTalentContainer');
+            const otherTalentField = document.querySelector('#other-talent');
+            const wordCountDisplay = document.querySelector('#wordCount');
+
+            if (talentSelect) {
+                talentSelect.addEventListener('change', function () {
+                    if (this.value === 'Other') {
+                        otherTalentContainer.style.display = 'block';
+                        otherTalentField.required = true;
+                    } else {
+                        otherTalentContainer.style.display = 'none';
+                        otherTalentField.required = false;
+                    }
+                });
+            }
+
+            // Word count limit for other talent field (50 words max)
+            if (otherTalentField) {
+                const updateWordCount = function () {
+                    const text = this.value.trim();
+                    const words = text === '' ? 0 : text.split(/\s+/).filter(w => w.length > 0).length;
+
+                    wordCountDisplay.textContent = `${words} / 50 words`;
+
+                    if (words > 50) {
+                        const wordArray = text.split(/\s+/).filter(w => w.length > 0);
+                        this.value = wordArray.slice(0, 50).join(' ');
+                        wordCountDisplay.textContent = '50 / 50 words';
+                    }
+                };
+
+                otherTalentField.addEventListener('input', updateWordCount);
+
+                // Handle paste events to prevent exceeding word limit
+                otherTalentField.addEventListener('paste', function (e) {
+                    e.preventDefault();
+                    const pastedText = (e.clipboardData || window.clipboardData).getData('text');
+                    const currentText = this.value;
+                    const combinedText = currentText + pastedText;
+
+                    const words = combinedText.trim().split(/\s+/).filter(w => w.length > 0);
+                    if (words.length > 50) {
+                        this.value = words.slice(0, 50).join(' ');
+                    } else {
+                        this.value = combinedText;
+                    }
+
+                    // Update display
+                    updateWordCount.call(this);
+                });
+            }
 
         </script>
 </body>

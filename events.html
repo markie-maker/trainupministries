@@ -208,7 +208,7 @@
             style="background-color: transparent; z-index: 3; padding: 0; display: flex; justify-content: center; height: calc(50vh + 4rem);">
             <h1 style="z-index: 3;">Events</h1>
         </header>
-        <img src="vineyard-header.jpg" alt="Temecula" class="header-image">
+        <img src="vineyard-header.jpg" alt="Temecula" class="header-image" loading="lazy">
 
         <!-- Nav -->
         <nav id="nav">
@@ -239,6 +239,11 @@
             </section>
             <section>
                 <div id="eventContainer">
+                </div>
+                <!-- Create button to load more events if > 3 -->
+                <div style="text-align: center; margin: 2rem 0;">
+                    <button id="loadMoreBtn" class="alt button" onclick="loadOrShowEvents()">Load More Events
+                    </button>
                 </div>
             </section>
 
@@ -283,7 +288,7 @@
                             d="m251.33-204.67-46.66-46.66L433.33-480 204.67-708.67l46.66-46.66L480-526.67l228.67-228.66 46.66 46.66L526.67-480l228.66 228.67-46.66 46.66L480-433.33 251.33-204.67Z" />
                     </svg>
                 </div>
-                <img src="communityService.jpg" alt="">
+                <img src="communityService.jpg" alt="" loading="lazy">
                 <p class="borderBottom">Date: March 15, 2025</p>
                 <p style="margin-bottom: 1rem !important;" class="borderBottom noMarginTop">Join us for a day of service
                     in our
@@ -488,6 +493,9 @@
             // Load current month on start
             loadCalendar(currentDate.getMonth(), currentDate.getFullYear());
 
+            // Global variable for events
+            let eventDivs;
+
             //  Create event cards dynamically using JSON data
 
             fetch('events.json')
@@ -496,12 +504,16 @@
                     eventContainer = document.getElementById('eventContainer');
                     events.forEach(e => {
                         const event = document.createElement('div');
-                        event.className = 'event';
+                        event.className = 'event eventDivs';
+
+                        // Use date as string or show TBD if invalid
+                        const dateDisplay = !e.date || e.date.includes('TBD') ? 'TBD' : e.date;
+
                         event.innerHTML = `
                             <h4>${e.title}</h4>
-                            <img src="${e.image}" alt="">
+                            <img src="${e.image}" alt="" loading="lazy">
                             <div class="dateTime">
-                                <span class="date">${new Date(e.date).toLocaleDateString()}</span>
+                                <span class="date">${dateDisplay}</span>
                                 <span class="time">${e.time}</span>
                             </div>
                             <span class="location">${e.location}</span>
@@ -509,11 +521,46 @@
                             <a onclick="openModal('${e.modalId}');" class="button primary fit">RSVP</a>
                         `;
                         eventContainer.appendChild(event);
-                    })
+                    });
+                    eventDivs = document.querySelectorAll('.eventDivs');
+
+                    if (eventDivs.length <= 3) {
+                        document.getElementById('loadMoreBtn').style.display = 'none';
+                    } else {
+                        for (let i = 3; i < eventDivs.length; i++) {
+                            eventDivs[i].style.display = 'none';
+                        }
+                    }
                 })
                 .catch(error => {
                     console.error('Error fetching or parsing JSON:', error);
                 });
+
+            // Global function to load more events
+            let eventsLoaded = false;
+            function loadOrShowEvents() {
+                if (eventsLoaded == false) {
+                    loadMoreEvents();
+                } else {
+                    showLessEvents();
+                }
+            }
+
+            function loadMoreEvents() {
+                eventDivs.forEach(div => {
+                    div.style.display = 'flex';
+                });
+                document.getElementById('loadMoreBtn').innerHTML = 'Show Less Events';
+                eventsLoaded = true;
+            }
+
+            function showLessEvents() {
+                for (let i = 3; i < eventDivs.length; i++) {
+                    eventDivs[i].style.display = 'none';
+                }
+                document.getElementById('loadMoreBtn').innerHTML = 'Load More Events';
+                eventsLoaded = false;
+            }
 
             // Add Modal for each event
             fetch('events.json')
@@ -524,6 +571,10 @@
                         const modal = document.createElement('div');
                         modal.className = 'fade eventModal event';
                         modal.id = e.modalId;
+
+                        // Use date as string or show TBD if invalid
+                        const dateDisplay = !e.date || e.date.includes('TBD') ? 'TBD' : e.date;
+
                         modal.innerHTML = `
                                 <div style="display: flex; justify-content: space-between; padding: 1rem 0;">
                                     <h3 style="display: inline; margin: 0;">${e.title}</h3>
@@ -531,8 +582,8 @@
                                         <path d="m251.33-204.67-46.66-46.66L433.33-480 204.67-708.67l46.66-46.66L480-526.67l228.67-228.66 46.66 46.66L526.67-480l228.66 228.67-46.66 46.66L480-433.33 251.33-204.67Z"/>
                                     </svg>
                                 </div>
-                                <img src="${e.image}" alt="">
-                                <p class="borderBottom">Date: ${new Date(e.date).toLocaleDateString()}</p>
+                                <img src="${e.image}" alt="" loading="lazy">
+                                <p class="borderBottom">Date: ${dateDisplay}</p>
                                 <p style="margin-bottom: 1rem !important;" class="borderBottom noMarginTop">${e.description}</p>
                                 <form action="${e.formURL}" method="post">
                                     <div style="margin: 0 auto; width: 100%;" class="modalForm row gtr-uniform">
