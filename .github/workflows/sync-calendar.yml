@@ -1,0 +1,37 @@
+name: Sync Google Calendar Events
+
+on:
+  schedule:
+    # Run every 30 minutes
+    - cron: '*/30 * * * *'
+  # Also allow manual trigger
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm install googleapis
+
+      - name: Create credentials file
+        run: echo '${{ secrets.GOOGLE_CREDENTIALS }}' > credentials.json
+
+      - name: Sync events from Google Calendar
+        run: node sync-events.js
+
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add events.json
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-sync calendar events" && git push)
