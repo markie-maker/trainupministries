@@ -119,7 +119,6 @@ loadCalendar(currentDate.getMonth(), currentDate.getFullYear());
 
 // Global variable for events
 let eventDivs;
-const eventDivs = document.querySelectorAll('.eventDivs');
 
 //  Create event cards dynamically using JSON data
 
@@ -359,7 +358,7 @@ async function buildModals() {
         modal.innerHTML = `
             <div style="display: flex; justify-content: space-between; padding: 1rem 0;">
                 <h3 style="display: inline; margin: 0;">${e.title}</h3>
-                <svg class="closeModal" onclick="closeModal('${e.modalId}');" xmlns="http://w3.org" height="32px" viewBox="0 -960 960 960" width="32px" fill="#000000">
+                <svg class="closeModal" onclick="closeModal('${e.modalId}');" xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 -960 960 960" width="32px" fill="#000000">
                     <path d="m251.33-204.67-46.66-46.66L433.33-480 204.67-708.67l46.66-46.66L480-526.67l228.67-228.66 46.66 46.66L526.67-480l228.66 228.67-46.66 46.66L480-433.33 251.33-204.67Z"/>
                 </svg>
             </div>
@@ -419,6 +418,8 @@ async function buildEventCardsList() {
         `;
         eventContainer.appendChild(event);
     });
+
+    eventDivs = document.querySelectorAll('.eventDivs');
 
     if (eventDivs.length <= 3) {
         const loadMoreBtn = document.getElementById('loadMoreBtn');
