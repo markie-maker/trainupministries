@@ -33,11 +33,16 @@ async function fetchGoogleCalendarEvents() {
         const calendar = google.calendar({ version: 'v3', auth });
 
         const nowIsoString = new Date().toISOString();
+        
+        // Set timeMax to end of current year (2026)
+        const endOfYear = new Date(new Date().getFullYear(), 11, 31, 23, 59, 59);
+        const timeMaxIsoString = endOfYear.toISOString();
 
         // Fetch events
         const response = await calendar.events.list({
             calendarId: CALENDAR_ID,
             timeMin: nowIsoString,
+            timeMax: timeMaxIsoString,
             singleEvents: true,
             orderBy: 'startTime',
             fields: 'items(summary,description,location,start)'
