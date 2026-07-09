@@ -114,13 +114,10 @@ function loadEvents(month, year) {
         });
 }
 
-// Load current month on start
 loadCalendar(currentDate.getMonth(), currentDate.getFullYear());
 
-// Global variable for events
 let eventDivs;
 
-//  Create event cards dynamically using JSON data
 
 fetch('events.json')
     .then(response => response.json())
@@ -240,6 +237,3 @@ fetch('events.json')
         console.error('Could not load events:', err);
     });
 
-
-
-// Events are now loaded from events.json in the fetch calls above
