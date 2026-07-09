@@ -1,5 +1,8 @@
 name: Sync Google Calendar Events
 
+permissions:
+  contents: write
+
 on:
   schedule:
     # Run every 30 minutes
