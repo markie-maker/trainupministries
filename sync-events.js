@@ -53,6 +53,11 @@ async function fetchGoogleCalendarEvents() {
         if (!data.items) {
             throw new Error('No items found in response');
         }
+        
+        console.log(`DEBUG: Google Calendar returned ${data.items.length} event(s)`);
+        console.log('Raw events from Google Calendar:');
+        console.log(JSON.stringify(data.items, null, 2));
+        
         const events = data.items.map(event => {
             const title = event.summary || "Untitled Event";
             const description = event.description || "Join us for this special session.";

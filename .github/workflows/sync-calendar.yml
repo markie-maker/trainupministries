@@ -36,6 +36,5 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git pull --rebase
           git add events.json
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-sync calendar events" && git push)
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-sync calendar events" && git push origin main)
