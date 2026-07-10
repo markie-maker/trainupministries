@@ -1,21 +1,11 @@
 [
   {
-    "title": "Test",
-    "modalId": "test",
-    "description": "Join us for this special session.",
-    "location": "Palm Springs, CA, USA",
-    "date": "07/23/2026",
-    "time": "2:45AM",
-    "image": "prayer&fasting.jpg",
-    "formURL": ""
-  },
-  {
     "title": "Movie Night",
     "modalId": "movie-night",
     "description": "Join us for a fun community Movie Night.",
     "location": "39681 Avenida Acacias, Murrieta, CA 92563",
     "date": "08/23/2026",
-    "time": "12:30AM",
+    "time": "5:30PM",
     "image": "prayer&fasting.jpg",
     "formURL": ""
   }
