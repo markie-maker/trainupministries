@@ -45,7 +45,7 @@ async function fetchGoogleCalendarEvents() {
             timeMax: timeMaxIsoString,
             singleEvents: true,
             orderBy: 'startTime',
-            fields: 'items(summary,description,location,start)'
+            fields: 'items(summary,description,location,start,timeZone)'
         });
 
         const data = response.data;
@@ -73,22 +73,27 @@ async function fetchGoogleCalendarEvents() {
 
             const hasDateTime = !!event.start?.dateTime;
             const rawDateValue = event.start?.dateTime || event.start?.date;
+            const eventTimeZone = event.start?.timeZone || event.timeZone || 'America/Los_Angeles'; // Default to PDT/PST
 
             if (rawDateValue) {
+                // Parse the date - Google Calendar returns times in the event's timezone
                 const dateObj = new Date(rawDateValue);
                 
+                // Format date
                 formattedDate = dateObj.toLocaleDateString('en-US', {
                     month: '2-digit',
                     day: '2-digit',
                     year: 'numeric'
                 });
 
+                // Format time in the event's timezone
                 if (hasDateTime) {
-                    formattedTime = dateObj.toLocaleTimeString('en-US', {
+                    formattedTime = new Intl.DateTimeFormat('en-US', {
                         hour: 'numeric',
                         minute: '2-digit',
-                        hour12: true
-                    }).replace(/\s+/g, '');
+                        hour12: true,
+                        timeZone: eventTimeZone
+                    }).format(dateObj).replace(/\s+/g, '');
                 }
             }
 
