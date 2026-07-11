@@ -32,7 +32,6 @@ jobs:
       - name: Sync & Render events from Google Calendar
         run: |
           node sync-events.js
-          node eventscripts.js
 
       - name: Commit and push changes
         run: |
