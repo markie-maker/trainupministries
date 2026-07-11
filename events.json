@@ -18,15 +18,5 @@
     "time": "2:00PM",
     "image": "prayer&fasting.jpg",
     "formURL": ""
-  },
-  {
-    "title": "Test",
-    "modalId": "test",
-    "description": "Test",
-    "location": "TBD",
-    "date": "08/28/2026",
-    "time": "12:00PM",
-    "image": "prayer&fasting.jpg",
-    "formURL": ""
   }
 ]
