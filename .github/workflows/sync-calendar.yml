@@ -30,8 +30,7 @@ jobs:
         run: echo '${{ secrets.GOOGLE_CREDENTIALS }}' > credentials.json
 
       - name: Sync & Render events from Google Calendar
-        run: |
-          node sync-events.js
+        run: node sync-events.js
 
       - name: Commit and push changes
         run: |
