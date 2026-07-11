@@ -29,8 +29,11 @@ jobs:
       - name: Create credentials file
         run: echo '${{ secrets.GOOGLE_CREDENTIALS }}' > credentials.json
 
-      - name: Sync events from Google Calendar
-        run: node sync-events.js
+      - name: Sync & Render events from Google Calendar
+        run: |
+          node sync-events.js
+          node eventscripts.js
+
 
       - name: Commit and push changes
         run: |
