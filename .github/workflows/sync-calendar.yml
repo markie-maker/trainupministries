@@ -36,5 +36,12 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
+          git checkout -B main
+          git pull --rebase origin main || true
           git add events.json
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-sync calendar events" && git push --force-with-lease origin main)
+          if git diff --cached --quiet; then
+            echo "No event changes to publish."
+          else
+            git commit -m "Auto-sync calendar events"
+            git push --force-with-lease origin HEAD:main
+          fi

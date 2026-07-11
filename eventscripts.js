@@ -88,7 +88,7 @@ function changeMonth(step) {
 }
 
 function loadEvents(month, year) {
-    fetch('events.json')
+    fetch('events.json?cacheBust=' + Date.now(), { cache: 'no-store' })
         .then(res => res.json())
         .then(events => {
             events.forEach(event => {
@@ -119,7 +119,7 @@ loadCalendar(currentDate.getMonth(), currentDate.getFullYear());
 let eventDivs;
 
 
-fetch('events.json')
+fetch('events.json?cacheBust=' + Date.now(), { cache: 'no-store' })
     .then(response => response.json())
     .then(events => {
         const eventContainer = document.getElementById('eventContainer');
@@ -185,7 +185,7 @@ function showLessEvents() {
 }
 
 // Add Modal for each event
-fetch('events.json')
+fetch('events.json?cacheBust=' + Date.now(), { cache: 'no-store' })
     .then(response => response.json())
     .then(events => {
         const modalContainer = document.querySelector('#modalContainer');

@@ -32,33 +32,35 @@ async function fetchGoogleCalendarEvents() {
 
         const calendar = google.calendar({ version: 'v3', auth });
 
-        const nowIsoString = new Date().toISOString();
-        
-        // Set timeMax to end of current year (2026)
-        const endOfYear = new Date(new Date().getFullYear(), 11, 31, 23, 59, 59);
-        const timeMaxIsoString = endOfYear.toISOString();
+        const now = new Date();
+        const timeMinIsoString = new Date(now.getFullYear(), 0, 1, 0, 0, 0).toISOString();
+        const timeMaxIsoString = new Date(now.getFullYear() + 1, 11, 31, 23, 59, 59).toISOString();
 
-        // Fetch events
-        const response = await calendar.events.list({
-            calendarId: CALENDAR_ID,
-            timeMin: nowIsoString,
-            timeMax: timeMaxIsoString,
-            singleEvents: true,
-            orderBy: 'startTime',
-            fields: 'items(summary,description,location,start)'
-        });
+        const allEventItems = [];
+        let pageToken = null;
 
-        const data = response.data;
-        
-        if (!data.items) {
+        do {
+            const response = await calendar.events.list({
+                calendarId: CALENDAR_ID,
+                timeMin: timeMinIsoString,
+                timeMax: timeMaxIsoString,
+                singleEvents: true,
+                orderBy: 'startTime',
+                maxResults: 2500,
+                pageToken,
+                fields: 'items(summary,description,location,start,status,id),nextPageToken'
+            });
+
+            const pageItems = response.data.items || [];
+            allEventItems.push(...pageItems);
+            pageToken = response.data.nextPageToken || null;
+        } while (pageToken);
+
+        if (!allEventItems.length) {
             throw new Error('No items found in response');
         }
-        
-        console.log(`DEBUG: Google Calendar returned ${data.items.length} event(s)`);
-        console.log('Raw events from Google Calendar:');
-        console.log(JSON.stringify(data.items, null, 2));
-        
-        const events = data.items.map(event => {
+
+        const events = allEventItems.map(event => {
             const title = event.summary || "Untitled Event";
             const description = event.description || "Join us for this special session.";
             const location = event.location || "TBD";
