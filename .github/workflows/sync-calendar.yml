@@ -34,17 +34,19 @@ jobs:
           node sync-events.js
           node eventscripts.js
 
-
       - name: Commit and push changes
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git checkout -B main
-          git pull --rebase origin main || true
+          
           git add events.json
+          
           if git diff --cached --quiet; then
             echo "No event changes to publish."
           else
             git commit -m "Auto-sync calendar events"
-            git push --force-with-lease origin HEAD:main
+            
+            git pull --rebase origin main
+            
+            git push origin HEAD:main
           fi
