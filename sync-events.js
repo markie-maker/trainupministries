@@ -125,9 +125,11 @@ async function syncEvents() {
         
         console.log(`Successfully synced ${events.length} event(s) to events.json`);
         console.log('Events:');
-        events.forEach(e => {
-            console.log(`  - ${e.title} (${e.date})`);
-        });
+        if (events.length > 0) {
+            events.forEach(e => {
+                console.log(`  - ${e.title} (${e.date})`);
+            });
+        }
     } catch (error) {
         console.error('Error syncing events:', error.message);
         process.exit(1);
