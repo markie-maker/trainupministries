@@ -57,7 +57,8 @@ async function fetchGoogleCalendarEvents() {
         } while (pageToken);
 
         if (!allEventItems.length) {
-            throw new Error('No items found in response');
+            console.log('No events found in the specified date range');
+            return [];
         }
 
         const events = allEventItems.map(event => {
@@ -124,7 +125,7 @@ async function syncEvents() {
         
         console.log(`✓ Successfully synced ${events.length} event(s) to events.json`);
         console.log('Events:');
-        events?.forEach(e => {
+        events.forEach(e => {
             console.log(`  - ${e.title} (${e.date})`);
         });
     } catch (error) {
