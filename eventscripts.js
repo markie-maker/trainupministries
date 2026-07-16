@@ -87,10 +87,15 @@ function changeMonth(step) {
     loadCalendar(currentDate.getMonth(), currentDate.getFullYear());
 }
 
+
+
+
 function loadEvents(month, year) {
     fetch('events.json?cacheBust=' + Date.now(), { cache: 'no-store' })
         .then(res => res.json())
         .then(events => {
+            if (!events || events.length === 0) return;
+
             events.forEach(event => {
                 const date = new Date(event.date);
                 const eventYear = date.getFullYear();
@@ -118,11 +123,21 @@ loadCalendar(currentDate.getMonth(), currentDate.getFullYear());
 
 let eventDivs;
 
-
 fetch('events.json?cacheBust=' + Date.now(), { cache: 'no-store' })
     .then(response => response.json())
     .then(events => {
         const eventContainer = document.getElementById('eventContainer');
+
+        if (!events || events.length === 0) {
+            const noEventsMsg = document.createElement('p');
+            noEventsMsg.textContent = 'No events available';
+            eventContainer.appendChild(noEventsMsg);
+
+            const loadMoreBtn = document.getElementById('loadMoreBtn');
+            if (loadMoreBtn) loadMoreBtn.style.display = 'none';
+            return; 
+        }
+
         events.forEach(e => {
             const event = document.createElement('div');
             event.className = 'event eventDivs';
@@ -143,6 +158,7 @@ fetch('events.json?cacheBust=' + Date.now(), { cache: 'no-store' })
             `;
             eventContainer.appendChild(event);
         });
+        
         eventDivs = document.querySelectorAll('.eventDivs');
 
         if (eventDivs.length <= 3) {
@@ -156,6 +172,10 @@ fetch('events.json?cacheBust=' + Date.now(), { cache: 'no-store' })
     })
     .catch(error => {
         console.error('Error fetching or parsing JSON:', error);
+        const eventContainer = document.getElementById('eventContainer');
+        if (eventContainer) {
+            eventContainer.innerHTML = '<p>No events available</p>';
+        }
     });
 
 
@@ -169,6 +189,7 @@ function loadOrShowEvents() {
 }
 
 function loadMoreEvents() {
+    if (!eventDivs) return;
     eventDivs.forEach(div => {
         div.style.display = 'flex';
     });
@@ -177,6 +198,7 @@ function loadMoreEvents() {
 }
 
 function showLessEvents() {
+    if (!eventDivs) return;
     for (let i = 3; i < eventDivs.length; i++) {
         eventDivs[i].style.display = 'none';
     }
@@ -188,6 +210,8 @@ function showLessEvents() {
 fetch('events.json?cacheBust=' + Date.now(), { cache: 'no-store' })
     .then(response => response.json())
     .then(events => {
+        if (!events || events.length === 0) return;
+
         const modalContainer = document.querySelector('#modalContainer');
         events.forEach(e => {
             const modal = document.createElement('div');
@@ -236,4 +260,3 @@ fetch('events.json?cacheBust=' + Date.now(), { cache: 'no-store' })
     .catch(err => {
         console.error('Could not load events:', err);
     });
-
