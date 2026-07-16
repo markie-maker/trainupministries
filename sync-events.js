@@ -57,8 +57,9 @@ async function fetchGoogleCalendarEvents() {
         } while (pageToken);
 
         if (!allEventItems.length) {
-            throw new Error('No items found in response');
-        }
+            console.log('No events found in the specified date range');
+            return [];
+        }   
 
         const events = allEventItems.map(event => {
             const title = event.summary || "Untitled Event";
@@ -122,13 +123,13 @@ async function syncEvents() {
         const eventsPath = __dirname + '/events.json';
         fs.writeFileSync(eventsPath, JSON.stringify(events, null, 2));
         
-        console.log(`✓ Successfully synced ${events.length} event(s) to events.json`);
+        console.log(`Successfully synced ${events.length} event(s) to events.json`);
         console.log('Events:');
-        events?.forEach(e => {
+        events.forEach(e => {
             console.log(`  - ${e.title} (${e.date})`);
         });
     } catch (error) {
-        console.error('✗ Error syncing events:', error.message);
+        console.error('Error syncing events:', error.message);
         process.exit(1);
     }
 }
